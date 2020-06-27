@@ -7,5 +7,6 @@ CREATE TABLE products (
   price INTEGER NOT NULL,
   category_id INTEGER REFERENCES categories(id),
   available BOOLEAN NOT NULL DEFAULT TRUE,
-  photo_URL VARCHAR(255)
+  photo_URL VARCHAR(255),
+  deleted BOOLEAN NOT NULL DEFAULT TRUE
 );
