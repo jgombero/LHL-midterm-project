@@ -1,5 +1,5 @@
 # User Routes (/user)
-Login
+Login$
 * app.get('/login/:id', (req, res) => {
   req.session.user_id = req.params.id;
   res.redirect('/');
@@ -39,22 +39,22 @@ Clear Filter
 * includes search results (none)
 
 View item details
-* router.get('/product/:productID)
+* router.get('/products/:productID)
 
 Save item*
-* router.post('/product/:productID/save')
+* router.post('/products/:productID/save')
 - [ ] Ask mentor
 
 Delete Item*
-* router.post('/product/:id/delete)
+* router.post('/products/:id/delete)
 - [ ] Add deleted colunn to db
 
 
 Send message OR reply*
-* router.post('/product/:id/new-message')
+* router.post('/products/:id/new-message')
 
 Create Item*
-* router.post('/product) {
+* router.post('/products) {
 }
 
 Load Messages*
