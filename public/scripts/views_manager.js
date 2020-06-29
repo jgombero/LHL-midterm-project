@@ -9,6 +9,11 @@ let applyPopups = () => {
 };
 
 $(() => {
+  $('#filter-button').click(function() {
+    $("#all-filters-container").slideToggle("slow", function() {
+    });
+
+  })
 
 
 });

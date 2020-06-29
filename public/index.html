@@ -6,6 +6,7 @@
     <title>Home Page</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -31,23 +32,29 @@
 
     <main>
       <aside id="sidebar">
-        <form>
+        <button id="filter-button" class="btn btn-success">Filter</button>
+        <div id="all-filters-container">
+        <form id="price-search-form">
           <label for="min-price"></label>
-          <input type="text" name="min-price" placeholder="Min">
-          <p>To</p>
+          <input type="text" name="min-price" class="apply-button"  placeholder="$ Min">
+          <p>-</p>
           <label for="max-price"></label>
-          <input type="text" name="max-price" placeholder="Max">
+          <input type="text" name="max-price" class="apply-button" placeholder="$ Max">
+          <button class="btn btn-primary apply-button">Apply</button>
         </form>
+        <div class="categories-group horizontal-scrollable">
         <ul>
-          <li>Cat 1</li>
-          <li>Cat 2</li>
-          <li>Cat 3</li>
-          <li>Cat 4</li>
-          <li>Cat 5</li>
-          <li>Cat 6</li>
-          <li>Cat 7</li>
-          <li>Cat 8</li>
+          <li>Category 1</li>
+          <li>Category 2</li>
+          <li>Category 3</li>
+          <li>Category 4</li>
+          <li>Category 5</li>
+          <li>Category 6</li>
+          <li>Category 7</li>
+          <li>Category 8</li>
         </ul>
+      </div>
+    </div>
       </aside>
       <section id="products">
         <article class="product">
@@ -77,8 +84,8 @@
 
     <div>
       <form id="test-form" action='/messages/82828' method='post'>
-        <input type="text" name="example" id="example2">
-        <button type='submit'>Test Button</button>
+        <input type="text" name="example" id="example2" placeholder="Search">
+        <button type='submit'>Search</button>
       </form>
 
     </div>

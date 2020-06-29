@@ -25,9 +25,6 @@ const getAllProductsFromDB = function(db, options, limit = 10) {
   }
 
 
-
-
-
   queryParams.push(limit);
   queryString += `
   LIMIT $${queryParams.length};
