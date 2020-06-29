@@ -5,8 +5,10 @@ const getAllProductsFromDB = function(db, options, limit = 10) {
   console.log('options for database.getAllProducts: ', options);
   const queryParams = [];
 
-  let queryString = `SELECT products.*
-  FROM products `;
+  let queryString = `SELECT products.*, categories.*
+  FROM products
+  LEFT JOIN categories ON categories.id = category_id
+  `;
 
   // Run function each time a new search parameter is added.
   const nextParam = () => {
@@ -24,6 +26,29 @@ const getAllProductsFromDB = function(db, options, limit = 10) {
     queryString += `products.id = $${queryParams.length} `;
   }
 
+  if (options.category_id) {
+    nextParam();
+    queryParams.push(`${options.categories_id}`);
+    queryString += `categories.id = $${queryParams.length} `;
+  }
+
+  if (options.min-price) {
+    nextParam();
+    queryParams.push(`${options.min-price}`);
+    querString += `products.price >= $${queryParams.length} `;
+  }
+
+  if (options.max-price) {
+    nextParam();
+    queryParams.push(`${options.max-price}`);
+    queryString += `products.price <= $${queryParams.length} `;
+  }
+
+  // if (options.owner_id) {
+  //   nextParam();
+  //   queryParams.push(`${options.owner_id}`);
+  //   queryString += `favorites.user_id = $${queryParams.length} `;
+  // }
 
   queryParams.push(limit);
   queryString += `
