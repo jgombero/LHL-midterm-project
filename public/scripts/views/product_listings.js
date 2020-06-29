@@ -1,8 +1,11 @@
+
+
+let renderListings = (productListingsArray) => {
+  console.log(productListingsArray);
+
+};
+
 $(() => {
 
-  const renderListings = (productListingsArray) => {
-    console.log(productListingsArray);
-
-  };
 
 });

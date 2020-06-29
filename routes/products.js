@@ -19,7 +19,7 @@ module.exports = function(db) {
 
     database.getAllProductsFromDB(db, req.query, 20)
       .then(products => {
-        // console.log('return products from db: ', products);
+        console.log('return products from db: ', products);
         res.send({products});
       })
       .catch(err => {
