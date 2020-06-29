@@ -8,7 +8,6 @@ $(() => {
 
     getAllProducts(idStr).then(function(json) {
       const productObj = json.products[0];
-      console.log(productObj);
       let $popup = $(`<div id='popup' class='popup'>
       <article class="inner-product-box product-detail-box">
         <div class='inner-product-header'>
@@ -44,6 +43,7 @@ $(() => {
       $('main').addClass('blur');
       // When close button on popup is clicked.
       $('.close').click(function(event) {
+        popup.remove();
         popup.removeClass('showContainer');
         innerPopup.removeClass('show');
         $('main').removeClass('blur');
@@ -58,12 +58,7 @@ $(() => {
           $('main').removeClass('blur');
         }
       };
-
-      // return $popup;
-    })
-      .then(
-        console.log("HELLLLOOO")
-      );
+    });
 
 
 
