@@ -30,6 +30,8 @@ const getAllProducts = function(params) {
     url += '?' + params;
   }
 
+  console.log(url);
+
   return $.ajax({
     url
   });

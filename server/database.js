@@ -6,7 +6,27 @@ const getAllProductsFromDB = function(db, options, limit = 10) {
   const queryParams = [];
 
   let queryString = `SELECT products.*
-  FROM products`;
+  FROM products `;
+
+  // Run function each time a new search parameter is added.
+  const nextParam = () => {
+    if (queryParams.length) {
+      queryString += `AND `;
+    } else {
+      queryString += `WHERE `;
+    }
+  };
+
+  // Modify search if product_id is included in options.
+  if (options.product_id) {
+    nextParam();
+    queryParams.push(`${options.product_id}`);
+    queryString += `products.id = $${queryParams.length} `;
+  }
+
+
+
+
 
   queryParams.push(limit);
   queryString += `
