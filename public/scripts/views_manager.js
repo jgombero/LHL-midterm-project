@@ -7,6 +7,8 @@ $(() => {
 
     const data = $(this).serialize();
     console.log('example data from form', data);
-    sendMessage(data);
+    sendMessage(data).then(function(json) {
+      console.log('json received from AJAX promise: ', json);
+    });
   });
 });
