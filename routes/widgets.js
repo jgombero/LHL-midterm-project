@@ -23,5 +23,21 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  router.post("/messages/", (req, res) => {
+    console.log('req to API /messages: ', req.body);
+    let query = `SELECT * FROM widgets`;
+    console.log(query);
+    db.query(query)
+      .then(data => {
+        const widgets = data.rows;
+        res.json({ widgets });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
   return router;
 };

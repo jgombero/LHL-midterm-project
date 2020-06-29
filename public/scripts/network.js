@@ -80,7 +80,7 @@ const sendMessage = function(data) {
 
   return $.ajax({
     method: 'POST',
-    url:`api/messages/${productID}`,
+    url:`api/messages/`,
     data
   });
 };
