@@ -1,8 +1,11 @@
 const renderListing = function(listingObj) {
   const markup = `
-  <article class="product">
+  <article class="product" id="product-${listingObj.id}">
     <img src="${listingObj.photo_url}" alt="" class="product-image">
-    <p class="product-text">${listingObj.description}</p>
+    <div class="product-text>
+      <p class="product-name">${listingObj.name}</p>
+      <p class="product-price">${listingObj.price}</p>
+    </div>
   </article>
   `;
   return markup;
