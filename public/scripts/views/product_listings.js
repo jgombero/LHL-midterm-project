@@ -16,7 +16,9 @@ const renderListings = function(productListingsArray) {
     const $listing = renderListing(listing);
 
     $('#products').append($listing);
+
   }
+  applyPopups();
 };
 
 // let renderListings = (productListingsArray) => {
