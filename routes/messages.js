@@ -1,7 +1,7 @@
 /*
- * All routes for Widgets are defined here
- * Since this file is loaded in server.js into api/widgets,
- *   these routes are mounted onto /widgets
+ * All routes for Products are defined here
+ * Since this file is loaded in server.js into api/products,
+ *   these routes are mounted onto /products
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
@@ -24,7 +24,7 @@ module.exports = (db) => {
       });
   });
 
-  router.post("/messages/", (req, res) => {
+  router.post("/new/", (req, res) => {
     console.log('req to API /messages: ', req.body);
     let query = `SELECT * FROM widgets`;
     console.log(query);

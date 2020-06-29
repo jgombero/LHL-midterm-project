@@ -1,20 +1,21 @@
 /*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into api/users,
- *   these routes are mounted onto /users
+ * All routes for Products are defined here
+ * Since this file is loaded in server.js into api/products,
+ *   these routes are mounted onto /products
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
-//  ROUTES TO /api/users
 const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
+    let query = `SELECT * FROM widgets`;
+    console.log(query);
+    db.query(query)
       .then(data => {
-        const users = data.rows;
-        res.json({ users });
+        const widgets = data.rows;
+        res.json({ widgets });
       })
       .catch(err => {
         res
@@ -22,5 +23,6 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
   return router;
 };

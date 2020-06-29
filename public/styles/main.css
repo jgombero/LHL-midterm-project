@@ -13,23 +13,42 @@ main {
 /* ALEX's TEST CSS CODE */
 .product-detail-box {
 z-index: 2;
-bottom:50%;
-left: 25%;
+top:20%;
+left: 10%;
 visibility: hidden;
 position: fixed;
 border: .2rem solid black;
 margin: auto;
-padding: 20px;
-width: 40%;
-height: 20rem;
+padding: 2rem;
+width: 80%;
+height: auto;
 background-color: blanchedalmond;
 vertical-align: middle;
-display: flex;
-justify-content: center;
-align-content: center;
-font-size:3rem;
+/* display: flex; */
+flex-direction: column;
+/* justify-content: center; */
+/* align-content: center; */
+
 text-align: center;
 }
+
+p .inner-product-description {
+  font-size: .5rem;
+  color: red;
+  text-align: left;
+
+}
+
+.inner-product-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.inner-product-details {
+  display: flex;
+  flex-direction: column;
+}
+
 .show {
   visibility: visible;
   -webkit-animation: fadeIn 0.5s;
@@ -45,6 +64,21 @@ text-align: center;
 .body-grey {
   z-index: 1;
   background-color: rgb(0,0,0,0.6);
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 
