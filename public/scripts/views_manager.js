@@ -12,6 +12,7 @@ $(() => {
   });
 
   $('.product').click(function (event) {
+    $popup.appendTo('body');
     console.log('test');
     innerPopup.addClass('show');
     popup.addClass('showContainer');

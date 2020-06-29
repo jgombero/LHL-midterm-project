@@ -1,5 +1,5 @@
 $(() => {
-  const $popup = $(`<div id='popup' class='popup'>
+  let $popup = $(`<div id='popup' class='popup'>
   <article class="inner-product-box product-detail-box">
     <div class='inner-product-header'>
       <span class="close">&times;</span>

@@ -9,6 +9,8 @@ const express = require('express');
 const router  = express.Router();
 const database = require('../server/database.js');
 
+let $popup;
+
 // This is the productsRoutes(db) that is called from server.js
 module.exports = function(db) {
   router.get("/", (req, res) => {
