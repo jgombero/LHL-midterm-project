@@ -1,0 +1,10 @@
+html {
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 15px;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
