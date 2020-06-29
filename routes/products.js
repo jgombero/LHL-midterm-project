@@ -7,21 +7,26 @@
 
 const express = require('express');
 const router  = express.Router();
+const database = require('../server/database.js');
 
-module.exports = (db) => {
+// This is the productsRoutes(db) that is called from server.js
+module.exports = function(db) {
   router.get("/", (req, res) => {
-    let query = `SELECT * FROM widgets`;
-    console.log(query);
-    db.query(query)
-      .then(data => {
-        const widgets = data.rows;
-        res.json({ widgets });
+    // const userId = req.session.userId;
+    console.log('request to products API: ', req.body);
+
+    database.getAllProductsFromDB(db, req.query, 20)
+      .then(products => {
+        // console.log('return products from db: ', products);
+        res.send({products});
       })
       .catch(err => {
         res
           .status(500)
           .json({ error: err.message });
       });
+
+
   });
 
   return router;
