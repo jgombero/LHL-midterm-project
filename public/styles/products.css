@@ -1,16 +1,19 @@
 #products {
   margin-left: 200px;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .product {
- width: 25%;
- margin: 5px;
+ width: 20%;
+ margin: 20px;
+ border: 1px lightgray solid;
+ border-radius: 4px;
 }
 
 .product-image {
   height: 200px;
-  width: 200px;
+  width: 100%;
   object-fit: cover;
   border-radius: 4px;
 }
