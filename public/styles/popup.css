@@ -1,14 +1,3 @@
-html {
-  box-sizing: border-box;
-  height: 100%;
-  font-size: 15px;
-}
-
-main {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 /* ALEX's TEST CSS CODE */
 /* Container for product popup */
 .popup {
@@ -128,4 +117,4 @@ p .inner-product-description {
   }
 }
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=popup.css.map */

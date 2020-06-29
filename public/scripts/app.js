@@ -2,8 +2,8 @@
 $(() => {
   console.log('page loaded. Running get to /product/s');
   getAllProducts().then(function(json) {
-    // console.log('returned items from DB:', json.products);
-    renderListings(json.products);
+    console.log('returned items from DB:', json.products);
+    // renderListings(json.products);
   });
 
 

@@ -8,7 +8,6 @@ const getAllProductsFromDB = function(db, options, limit = 10) {
   let queryString = `SELECT products.*
   FROM products`;
 
-
   queryParams.push(limit);
   queryString += `
   LIMIT $${queryParams.length};

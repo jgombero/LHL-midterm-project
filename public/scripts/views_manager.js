@@ -2,27 +2,29 @@
 $(() => {
 
   const testButton = $('#test-button');
+  const innerPopup = $('.inner-product-box');
   const popup = $('#popup');
   const popupID = document.getElementById('popup');
   $('.close').click(function(event) {
-    popup.removeClass('show');
+    popup.removeClass('showContainer');
+    innerPopup.removeClass('show');
     $('main').removeClass('blur');
   });
 
   $('.product').click(function (event) {
     console.log('test');
-    popup.addClass('show');
-    // $('body').addClass('body-grey')
-    $('main').addClass('blur')
+    innerPopup.addClass('show');
+    popup.addClass('showContainer');
+    $('main').addClass('blur');
   })
 
   window.onclick = function (event) {
     if (event.target === popupID) {
-      popup.removeClass('show');
-      $('main').removeClass('blur')
-      // $('body').removeClass('body-grey')
+      popup.removeClass('showContainer');
+      innerPopup.removeClass('show');
+      $('main').removeClass('blur');
     }
-  }
+  };
 
 
 

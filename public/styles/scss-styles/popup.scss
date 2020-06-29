@@ -1,16 +1,8 @@
-html {
-  box-sizing: border-box;
-  height: 100%;
-  font-size: 15px;
-}
-
-main {
-  display: flex;
-  flex-wrap: wrap;
-}
 
 /* ALEX's TEST CSS CODE */
+
 /* Container for product popup */
+
 .popup {
   width: 100%;
   height: 100%;
@@ -18,24 +10,24 @@ main {
   z-index: 3;
   visibility: hidden;
   display: none;
+
   position: absolute;
 }
-
 .product-detail-box {
-  z-index: 4;
-  position: relative;
-  margin: 0 auto;
-  top: 15%;
-  visibility: hidden;
-  border: 0.2rem solid black;
-  margin: 0 auto;
-  padding: 2rem;
-  width: 60%;
-  height: auto;
-  background-color: #dee7f5;
-  vertical-align: middle;
-  display: flex;
-  flex-direction: column;
+z-index: 4;
+position: relative;
+margin: 0 auto;
+top: 15%;
+visibility: hidden;
+border: .2rem solid black;
+margin: 0 auto;
+padding: 2rem;
+width: 60%;
+height: auto;
+background-color: rgb(222, 231, 245);
+vertical-align: middle;
+display: flex;
+flex-direction: column;
 }
 
 .inner-product-header {
@@ -43,7 +35,7 @@ main {
 }
 
 p .inner-product-description {
-  font-size: 0.5rem;
+  font-size: .5rem;
   color: red;
   text-align: left;
 }
@@ -54,9 +46,9 @@ p .inner-product-description {
 }
 
 .inner-product-footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
 }
 
 #message-box {
@@ -65,9 +57,10 @@ p .inner-product-description {
 
 #submit-message-button {
   width: 10%;
-  background-color: #5353a1;
-  color: white;
+  background-color: rgb(83, 83, 161);
+  color:white;
 }
+
 
 .inner-product-details {
   display: flex;
@@ -82,10 +75,10 @@ p .inner-product-description {
 .show {
   visibility: visible;
   -webkit-animation: fadeIn 0.5s;
-  animation: fadeIn 0.5s;
+  animation: fadeIn 0.5s
 }
 
-.blur {
+.blur{
   z-index: 1;
   -webkit-filter: blur(5px) grayscale(50%);
   filter: blur(5px) grayscale(50%);
@@ -93,7 +86,7 @@ p .inner-product-description {
 
 .body-grey {
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgb(0,0,0,0.6);
 }
 
 /* The Close Button */
@@ -104,6 +97,8 @@ p .inner-product-description {
   font-weight: bold;
 }
 
+
+
 .close:hover,
 .close:focus {
   color: #000;
@@ -111,21 +106,13 @@ p .inner-product-description {
   cursor: pointer;
 }
 
+
 @-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
-/*# sourceMappingURL=main.css.map */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+};
