@@ -14,8 +14,7 @@ let $popup;
 // This is the productsRoutes(db) that is called from server.js
 module.exports = function(db) {
   router.get("/", (req, res) => {
-    // const userId = req.session.userId;
-    console.log('request to products API: ', req.body);
+    console.log('request to products API: ', req.query);
 
     database.getAllProductsFromDB(db, req.query, 20)
       .then(products => {
