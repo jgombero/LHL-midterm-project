@@ -21,4 +21,6 @@
 
 .product-text {
   margin: 5px;
+  overflow: hidden;
+  height: 2.4rem;
 }
