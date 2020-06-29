@@ -32,15 +32,15 @@ const getAllProductsFromDB = function(db, options, limit = 10) {
     queryString += `categories.id = $${queryParams.length} `;
   }
 
-  if (options.min-price) {
+  if (options.min_price) {
     nextParam();
-    queryParams.push(`${options.min-price}`);
+    queryParams.push(`${options.min_price}`);
     querString += `products.price >= $${queryParams.length} `;
   }
 
-  if (options.max-price) {
+  if (options.max_price) {
     nextParam();
-    queryParams.push(`${options.max-price}`);
+    queryParams.push(`${options.max_price}`);
     queryString += `products.price <= $${queryParams.length} `;
   }
 
