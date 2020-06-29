@@ -50,6 +50,10 @@ app.get("/", (req, res) => {
   console.log('request to / received');
   res.render("index");
 });
+app.get("/test", (req, res) => {
+  console.log('request to / received');
+  res.render("test");
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
