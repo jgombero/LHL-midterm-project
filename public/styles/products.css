@@ -2,13 +2,14 @@
   margin-left: 200px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .product {
- width: 20%;
- margin: 20px;
- border: 1px lightgray solid;
- border-radius: 4px;
+  width: 200px;
+  margin: 20px;
+  border: 1px lightgray solid;
+  border-radius: 4px;
 }
 
 .product-image {
@@ -16,4 +17,8 @@
   width: 100%;
   object-fit: cover;
   border-radius: 4px;
+}
+
+.product-text {
+  margin: 5px;
 }
