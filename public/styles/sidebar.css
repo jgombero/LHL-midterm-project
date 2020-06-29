@@ -69,6 +69,7 @@ ul {
   } */
 }
 
+/* Desktop view */
 @media screen and (min-width: 60em) {
 
   #sidebar {
@@ -113,8 +114,10 @@ ul {
     display: none;
   }
 
-  #all-filters-container {
+  div#all-filters-container {
     display: flex;
+    margin: auto;
+    /* display: inline-flex; */
     flex-direction: column;
     justify-content: flex-start;
   }
