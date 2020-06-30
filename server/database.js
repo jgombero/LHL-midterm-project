@@ -85,7 +85,7 @@ const getAllCategories = function(db, options, limit = 20) {
 
 exports.getAllCategories = getAllCategories;
 
-const getUserWithEmail = function(email) {
+const getUserWithEmail = function(db, email) {
   return db.query(`
   SELECT *
   FROM users

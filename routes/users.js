@@ -8,6 +8,8 @@
 //  ROUTES TO /api/users
 const express = require('express');
 const router  = express.Router();
+const database = require('../server/database.js');
+
 
 // This is what LightBNB was using:
 // module.exports = function(router, database) {
@@ -26,9 +28,11 @@ module.exports = (db) => {
       });
   });
 
-  router.get("/login/:email", (req, res) => {
+  router.get("/login", (req, res) => {
     // Function to find user_id for given email
-    getUserWithEmail(req.params.email)
+    console.log('REQ QUERY', req.query);
+
+    database.getUserWithEmail(db, req.query.user_email)
       .then(user => {
         req.session.user_id = user.id;
         res.redirect('/');
