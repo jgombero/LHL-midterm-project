@@ -46,18 +46,13 @@ $(() => {
       // When close button on popup is clicked.
       $('.close').click(function(event) {
         popup.remove();
-        popup.removeClass('showContainer');
-        innerPopup.removeClass('show');
         $('main').removeClass('blur');
       });
       // Handles clicking outside of product box.
       window.onclick = function (event) {
-        console.log(event.target);
         if (event.target === popupID) {
-          popup.remove();
-          popup.removeClass('showContainer');
-          innerPopup.removeClass('show');
           $('main').removeClass('blur');
+          popup.remove();
         }
       };
     });

@@ -12,14 +12,14 @@
 
 .product-detail-box {
   z-index: 4;
-  position: relative;
+  position: fixed;
   margin: 0 auto;
   top: 15%;
   visibility: hidden;
   border: 0.2rem solid black;
   margin: 0 auto;
   padding: 2rem;
-  width: 60%;
+  width: 100%;
   height: auto;
   background-color: #dee7f5;
   vertical-align: middle;
@@ -120,5 +120,12 @@ p .inner-product-description {
 /*# sourceMappingURL=popup.css.map */
 
 @media screen and (min-width: 60em) {
+  .popup {
+    width: 60%;
+    left: 25%;
+}
+.inner-product-box {
+  width: 60%;
+}
 
 }
