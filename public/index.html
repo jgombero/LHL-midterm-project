@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/products.css" type="text/css" />
   <link rel="stylesheet" href="/styles/popup.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/views/product_listings.js"></script>
   <script type="text/javascript" src="/scripts/views/popup.js"></script>
@@ -23,38 +25,21 @@
   <script type="text/javascript" src="/scripts/network.js"></script>
   <script type="text/javascript" src="/scripts/views_manager.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/views/header.js"></script>
 </head>
 
 <body>
-  <h1>Hello World! HTML file</h1>
 
-  <header id="main-header"></header>
+  <header id="main-header">
+    <i class="fa fa-user" aria-hidden="true"></i>
+    <i id="favorites" class="fa fa-heart-o"></i>
+    <i id="add_property" class="fa fa-plus" aria-hidden="true"></i>
+    <i id="my_properties" class="fa fa-briefcase" aria-hidden="true"></i>
+    <i id="messages" class="fa fa-envelope" aria-hidden="true"></i>
+  </header>
 
   <main>
-
-    <section id="products">
-      <article class="product">
-        <img src="https://i.imgur.com/hqPLDXs.jpg" alt="" class="product-image">
-        <p class="product-text">A really nice truck, 3000000</p>
-      </article>
-      <article class="product">
-        <img src="https://i.imgur.com/J9NxVYb.jpg" alt="" class="product-image">
-        <p class="product-text">The best tool for cleaning your yard. $100 OBO, 10000</p>
-      </article>
-      <article class="product">
-        <img src="https://i.imgur.com/eM2IwIw.jpg" alt="" class="product-image">
-        <p class="product-text">Doesn''t work but it''s yours for CHEAP! 100</p>
-      </article>
-      <article class="product">
-        <img src="https://i.imgur.com/UfTbiCM.jpg" alt="" class="product-image">
-        <p class="product-text">Excellent condition! High quality. Suitable For Child With Age From 24 months to 5
-          years, 20000</p>
-      </article>
-      <article class="product">
-        <img src="https://i.imgur.com/H3hcZU7.jpg" alt="" class="product-image">
-        <p class="product-text">This stuff rocks!, 1000</p>
-      </article>
-    </section>
+    <section id="products"></section>
   </main>
 
 
