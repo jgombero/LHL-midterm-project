@@ -128,6 +128,17 @@ p .inner-product-description {
 }
 
 /*# sourceMappingURL=popup.css.map */
+@media screen and (min-width: 40em) {
+  .popup {
+    width: 80%;
+    /* align-self: center; */
+    left: 15%;
+}
+.inner-product-box {
+  width: 80%;
+}
+
+}
 
 @media screen and (min-width: 60em) {
   .popup {
