@@ -15,7 +15,7 @@ const renderListing = function(listingObj) {
     <img src="${listingObj.photo_url}" alt="" class="product-image">
     <div class="product-text">
       <p class="product-name">${listingObj.name}</p>
-      <p class="product-price">${listingObj.price}</p>
+      <p class="product-price"><strong>$${(listingObj.price / 100).toFixed(2)}</strong></p>
     </div>
   </article>
   `;
