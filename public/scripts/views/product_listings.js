@@ -33,13 +33,3 @@ const renderListings = function(productListingsArray) {
   }
   applyPopups();
 };
-
-// let renderListings = (productListingsArray) => {
-//   console.log(productListingsArray);
-
-// };
-
-// $(() => {
-
-
-// });
