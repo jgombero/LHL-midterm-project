@@ -1,7 +1,7 @@
 const updateMessages = function() {
 
 
-}
+};
 
 const $messages = $(`<div id="messages-container">
 <div id="messages-list">

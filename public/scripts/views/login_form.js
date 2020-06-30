@@ -9,19 +9,22 @@ const $logInForm = $(`<h1>Log In!</h1>
   </button>
 </form>`);
 
-$(() => {
+const applyLoginOverride = function() {
   $('#login-form').on('submit', function(event) {
     event.preventDefault();
     console.log('Login form submitted');
 
-    // const data = $(this).serialize();
-    // console.log(data);
+    const data = $(this).serialize();
+    console.log(data);
     login(data)
-    .then(json => {
-      console.log(json);
-      views_manager.show('products');
-    });
+      .then(json => {
+        console.log(json);
+        views_manager.show('products');
+      });
   });
+};
+
+$(() => {
 
 });
 

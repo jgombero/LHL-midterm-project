@@ -27,6 +27,7 @@ window.views_manager.show = function(item) {
       break;
     case 'logIn':
       $logInForm.appendTo($section);
+      applyLoginOverride();
       break;
     case 'signUp':
       $signUpForm.appendTo($section);
