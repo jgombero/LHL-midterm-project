@@ -24,34 +24,6 @@
 
 
 <body>
-  <div id='popup' class='popup'>
-    <article class="inner-product-box product-detail-box">
-      <div class='inner-product-header'>
-        <span class="close">&times;</span>
-      </div>
-      <img src="https://i.imgur.com/hqPLDXs.jpg" alt="" class="product-image">
-      <div class="inner-product-datails">
-        <h3>Sample Item Title here.</h3>
-        <p class="inner-product-description">Sample Item Descriptive text. Sample Item Descriptive text. Sample Item
-          Descriptive text. Sample Item Descriptive text.
-          Sample Item Descriptive text. Sample Item Descriptive text. Sample Item Descriptive text.
-        </p>
-        <div class="inner-product-footer">
-          <h3>$20,000</h3>
-          <span class="close">&hearts;</span>
-        </div>
-        <form id="send-message-form">
-           <div class="inner-product-footer">
-            <label for="message-box"></label>
-            <input id="message-box" type="text" name="send_message_text" placeholder="Is this product still available?">
-            <button id="submit-message-button" type="submit">Send</button>
-          </div>
-        </form>
-      </div>
-    </article>
-  </div>
-  <h1>Hello World! HTML file</h1>
-  <button id='test-button' type='submit'>Test Button</button>
 
 
   <header id="main-header">
@@ -61,46 +33,30 @@
 
   <main>
 
-    <aside id="sidebar">
-      <form>
-        <label for="min-price"></label>
-        <input type="text" name="min-price" placeholder="Min">
-        <p>To</p>
-        <label for="max-price"></label>
-        <input type="text" name="max-price" placeholder="Max">
-      </form>
-      <ul>
-        <li>Cat 1</li>
-        <li>Cat 2</li>
-        <li>Cat 3</li>
-        <li>Cat 4</li>
-        <li>Cat 5</li>
-        <li>Cat 6</li>
-        <li>Cat 7</li>
-        <li>Cat 8</li>
-      </ul>
-    </aside>
-    <section id="products">
+    <section id="main-container">
+      <div id="messages-container">
+        <div id="messages-list">
+          <article class="message-subject">Test Subject</article>
+          <article class="message-subject">Test Subject</article>
+          <article class="message-subject">Test Subject</article>
 
-    </section>
-    <section id="products">
-      <article class="product">
-        <img src="https://i.imgur.com/hqPLDXs.jpg" alt="" class="product-image">
-        <p class="product-text">A really nice truck, 3000000</p>
-      </article>
-      <article class="product">
-        <img src="https://i.imgur.com/J9NxVYb.jpg" alt="" class="product-image">
-        <p class="product-text">The best tool for cleaning your yard. $100 OBO, 10000</p>
-      </article>
-      <article class="product">
-        <img src="https://i.imgur.com/eM2IwIw.jpg" alt="" class="product-image">
-        <p class="product-text">Doesn''t work but it''s yours for CHEAP! 100</p>
-      </article>
-      <article class="product">
-        <img src="https://i.imgur.com/UfTbiCM.jpg" alt="" class="product-image">
-        <p class="product-text">Excellent condition! High quality. Suitable For Child With Age From 24 months to 5
-          years, 20000</p>
-      </article>
+        </div>
+        <div id="single-message-container">
+          <article class="message-content">
+            Test message content
+          </article>
+          <article class="message-content">
+            Test message content
+          </article>
+          <article class="message-content">
+            Test message content
+          </article>
+
+        </div>
+
+
+      </div>
+
     </section>
   </main>
 
