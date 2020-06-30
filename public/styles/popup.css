@@ -63,7 +63,8 @@ p .inner-product-description {
 }
 
 #submit-message-button {
-  width: 10%;
+  width: auto;
+
   background-color: #5353a1;
   color: white;
 }

@@ -42,7 +42,15 @@ ul {
   padding: 14px;
   text-decoration: none;
   display: inline-block;
+  cursor: pointer;
+
 }
+
+.categories-group li:hover {
+  background-color: rgb(158, 189, 240)
+}
+
+
 .categories-group {
   /* background-color: #333; */
   overflow: auto;
@@ -110,6 +118,7 @@ ul {
   li {
     margin: 0.2rem;
   }
+
   #filter-button {
     display: none;
   }

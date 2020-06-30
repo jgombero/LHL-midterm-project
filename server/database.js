@@ -69,6 +69,7 @@ exports.getAllProductsFromDB = getAllProductsFromDB;
 const getAllCategories = function(db, options, limit = 20) {
   let queryString = `SELECT categories.name AS category_name
   FROM categories
+  ORDER BY category_name
   LIMIT $1
   `;
 

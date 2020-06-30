@@ -1,7 +1,16 @@
+const applyCategoryLinks = function() {
+  $('.category-list').click(function() {
+    const id = $(this).attr('id');
+    const catID = id.slice(9,30);
+    console.log(catID);
+
+  });
+
+};
 
 const renderSidebarCategory = function(categoryName) {
   const markup = `
-    <li>${categoryName}</li>
+    <li id='category-${categoryName}' class='category-list'>${categoryName}</li>
   `;
   return markup;
 };
@@ -33,6 +42,8 @@ const renderSidebar = function(categoryArray) {
     const $category = renderSidebarCategory(category.category_name);
     $('#category-list').append($category);
   }
+
+  applyCategoryLinks();
 
   $('#filter-button').click(function() {
     $("#all-filters-container").slideToggle("slow", function() {
