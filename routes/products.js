@@ -15,7 +15,7 @@ module.exports = function(db) {
   router.get("/categories", (req, res) => {
     database.getAllCategories(db, req.query, 20)
       .then(categories => {
-        console.log('return products from db: ', categories);
+        // console.log('return products from db: ', categories);
         res.send({categories});
       })
       .catch(err => {
@@ -30,7 +30,7 @@ module.exports = function(db) {
 
     database.getAllProductsFromDB(db, req.query, 20)
       .then(products => {
-        console.log('return products from db: ', products);
+        // console.log('return products from db: ', products);
         res.send({products});
       })
       .catch(err => {

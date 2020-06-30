@@ -10,6 +10,8 @@ window.views_manager.show = function(item) {
   const $section = $('main');
   const $products = $('#main-container');
   $products.detach();
+  $sidebar.detach();
+
   $logInForm.detach();
   // $signUpForm.detach();
   // $messages.detach();
@@ -17,6 +19,7 @@ window.views_manager.show = function(item) {
 
   switch(item) {
     case 'product':
+      $sidebar.appendTo($section);
       $product.appendTo($section);
       break;
     case 'newProduct':

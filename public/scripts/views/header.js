@@ -1,7 +1,6 @@
 let $header;
 
 $(() => {
-  console.log('On document Ready');
   // renderHeader();
 
   $('#log_in').click(function() {

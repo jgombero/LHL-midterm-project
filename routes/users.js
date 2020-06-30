@@ -31,7 +31,7 @@ module.exports = (db) => {
     getUserWithEmail(req.params.email)
       .then(user => {
         req.session.user_id = user.id;
-        res.redirect('/', user.id);
+        res.redirect('/');
       });
 
     // Assign a cookie for the user_id we just looked up.

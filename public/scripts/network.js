@@ -1,13 +1,14 @@
 
 const login = function(data) {
+  console.log('network.js LOGIN function triggered. Data Sent: ', data);
   return $.ajax({
-    url: `/users/login/${data.user_email}`
+    url: `api/users/login/${data.user_email}`
   });
 };
 
 const getLoginPage = function(data) {
   return $.ajax({
-    url: '/users/login/:id',
+    url: 'api/users/login/:id',
     data
   })
 }

@@ -12,10 +12,8 @@ const applyCategoryLinks = function() {
 
     const id = $(this).attr('id');
     const catID = id.slice(9,30);
-    console.log('catID: ', catID);
 
     // Remove existing category filter if highlighted.
-    console.log('current cat selected', categorySelected);
     $(`#category-${categorySelected}`).addClass('category-button-normal');
     $(`#category-${categorySelected}`).removeClass('category-button-selected');
 
@@ -36,8 +34,8 @@ const applyCategoryLinks = function() {
 
   $('#price-search-form').submit(function(event) {
     event.preventDefault();
-    console.log($(this));
-    console.log($(this).serialize());
+    // console.log($(this));
+    // console.log($(this).serialize());
     let data = $(this).serialize();
 
     if (categorySelected) {
@@ -58,7 +56,7 @@ const renderSidebarCategory = function(category) {
 };
 
 const renderSidebar = function(categoryArray) {
-  $sidebar = `
+  $sidebar = $(`
   <aside id="sidebar">
       <button id="filter-button" class="btn btn-success">Filter</button>
       <div id="all-filters-container">
@@ -75,7 +73,7 @@ const renderSidebar = function(categoryArray) {
           </ul>
         </div>
       </div>
-    </aside>`;
+    </aside>`);
 
   $('main').prepend($sidebar);
 
