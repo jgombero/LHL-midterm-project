@@ -1,4 +1,5 @@
 const renderListing = function(listingObj) {
+  console.log('listing obj: ', listingObj);
   const markup = `
   <article class="product" id="product-${listingObj.id}">
     <img src="${listingObj.photo_url}" alt="" class="product-image">

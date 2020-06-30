@@ -5,7 +5,9 @@ const getAllProductsFromDB = function(db, options, limit = 10) {
   console.log('options for database.getAllProducts: ', options);
   const queryParams = [];
 
-  let queryString = `SELECT products.*, categories.*
+  console.log('SQ request options: ', options);
+
+  let queryString = `SELECT products.*, categories.id AS category_id, categories.name AS category_name
   FROM products
   LEFT JOIN categories ON categories.id = category_id
   `;
