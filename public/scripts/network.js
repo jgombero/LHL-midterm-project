@@ -46,6 +46,15 @@ const addProduct = function(data) {
   });
 };
 
+const getAllCategories = function(params) {
+  let url = '/api/products/categories';
+  console.log('Get params: ', params);
+
+  return $.ajax({
+    url
+  });
+};
+
 const saveProduct = function(data) {
   // find productID in data
   const productID = data;

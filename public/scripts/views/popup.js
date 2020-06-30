@@ -1,4 +1,5 @@
 let $window;
+let $popup;
 
 $(() => {
   $window = $('window');

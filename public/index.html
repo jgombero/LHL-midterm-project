@@ -1,93 +1,71 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<head>
+  <title>Home Page</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/sidebar.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/products.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/popup.css" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/views/product_listings.js"></script>
-    <script type="text/javascript" src="/scripts/views/popup.js"></script>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/sidebar.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/products.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/popup.css" type="text/css" />
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/views/product_listings.js"></script>
+  <script type="text/javascript" src="/scripts/views/popup.js"></script>
 
-    <script type="text/javascript" src="/scripts/network.js"></script>
-    <script type="text/javascript" src="/scripts/views_manager.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+  <script type="text/javascript" src="/scripts/views/filter_form.js"></script>
+  <script type="text/javascript" src="/scripts/network.js"></script>
+  <script type="text/javascript" src="/scripts/views_manager.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
 
-  <body>
-    <h1>Hello World! HTML file</h1>
+<body>
+  <h1>Hello World! HTML file</h1>
 
-    <header id="main-header"></header>
+  <header id="main-header"></header>
 
-    <main>
-      <aside id="sidebar">
-        <button id="filter-button" class="btn btn-success">Filter</button>
-        <div id="all-filters-container">
-        <form id="price-search-form">
-          <label for="min_price"></label>
-          <input type="text" name="min_price" class="apply-button"  placeholder="$ Min">
-          <p>-</p>
-          <label for="max_price"></label>
-          <input type="text" name="max_price" class="apply-button" placeholder="$ Max">
-          <button class="btn btn-primary apply-button">Apply</button>
-        </form>
-        <div class="categories-group horizontal-scrollable">
-        <ul>
-          <li>Category 1</li>
-          <li>Category 2</li>
-          <li>Category 3</li>
-          <li>Category 4</li>
-          <li>Category 5</li>
-          <li>Category 6</li>
-          <li>Category 7</li>
-          <li>Category 8</li>
-        </ul>
-      </div>
-    </div>
-      </aside>
-      <section id="products">
-        <article class="product">
-          <img src="https://i.imgur.com/hqPLDXs.jpg" alt="" class="product-image">
-          <p class="product-text">A really nice truck, 3000000</p>
-        </article>
-        <article class="product">
-          <img src="https://i.imgur.com/J9NxVYb.jpg" alt="" class="product-image">
-          <p class="product-text">The best tool for cleaning your yard. $100 OBO, 10000</p>
-        </article>
-        <article class="product">
-          <img src="https://i.imgur.com/eM2IwIw.jpg" alt="" class="product-image">
-          <p class="product-text">Doesn''t work but it''s yours for CHEAP! 100</p>
-        </article>
-        <article class="product">
-          <img src="https://i.imgur.com/UfTbiCM.jpg" alt="" class="product-image">
-          <p class="product-text">Excellent condition! High quality. Suitable For Child With Age From 24 months to 5 years, 20000</p>
-        </article>
-        <article class="product">
-          <img src="https://i.imgur.com/H3hcZU7.jpg" alt="" class="product-image">
-          <p class="product-text">This stuff rocks!, 1000</p>
-        </article>
-      </section>
-    </main>
+  <main>
+
+    <section id="products">
+      <article class="product">
+        <img src="https://i.imgur.com/hqPLDXs.jpg" alt="" class="product-image">
+        <p class="product-text">A really nice truck, 3000000</p>
+      </article>
+      <article class="product">
+        <img src="https://i.imgur.com/J9NxVYb.jpg" alt="" class="product-image">
+        <p class="product-text">The best tool for cleaning your yard. $100 OBO, 10000</p>
+      </article>
+      <article class="product">
+        <img src="https://i.imgur.com/eM2IwIw.jpg" alt="" class="product-image">
+        <p class="product-text">Doesn''t work but it''s yours for CHEAP! 100</p>
+      </article>
+      <article class="product">
+        <img src="https://i.imgur.com/UfTbiCM.jpg" alt="" class="product-image">
+        <p class="product-text">Excellent condition! High quality. Suitable For Child With Age From 24 months to 5
+          years, 20000</p>
+      </article>
+      <article class="product">
+        <img src="https://i.imgur.com/H3hcZU7.jpg" alt="" class="product-image">
+        <p class="product-text">This stuff rocks!, 1000</p>
+      </article>
+    </section>
+  </main>
 
 
 
-    <div>
-      <form id="test-form" action='/messages/82828' method='post'>
-        <input type="text" name="example" id="example2" placeholder="Search">
-        <button type='submit'>Search</button>
-      </form>
+  <div>
+    <form id="test-form" action='/messages/82828' method='post'>
+      <input type="text" name="example" id="example2" placeholder="Search">
+      <button type='submit'>Search</button>
+    </form>
 
-    </div>
-  </body>
+  </div>
+</body>
+
 </html>

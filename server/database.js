@@ -65,3 +65,16 @@ const getAllProductsFromDB = function(db, options, limit = 10) {
 };
 
 exports.getAllProductsFromDB = getAllProductsFromDB;
+
+const getAllCategories = function(db, options, limit = 20) {
+  let queryString = `SELECT categories.name AS category_name
+  FROM categories
+  LIMIT $1
+  `;
+
+  return db.query(queryString, [limit])
+    .then(res => res.rows);
+};
+
+
+exports.getAllCategories = getAllCategories;

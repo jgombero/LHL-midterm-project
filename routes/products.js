@@ -9,10 +9,24 @@ const express = require('express');
 const router  = express.Router();
 const database = require('../server/database.js');
 
-let $popup;
 
 // This is the productsRoutes(db) that is called from server.js
 module.exports = function(db) {
+  router.get("/categories", (req, res) => {
+    console.log('request to get categories from Products API: ', req.query);
+
+    database.getAllCategories(db, req.query, 20)
+      .then(categories => {
+        console.log('return products from db: ', categories);
+        res.send({categories});
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
   router.get("/", (req, res) => {
     console.log('request to products API: ', req.query);
 
@@ -26,8 +40,6 @@ module.exports = function(db) {
           .status(500)
           .json({ error: err.message });
       });
-
-
   });
 
   return router;
