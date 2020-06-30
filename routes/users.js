@@ -9,6 +9,9 @@
 const express = require('express');
 const router  = express.Router();
 
+// This is what LightBNB was using:
+// module.exports = function(router, database) {
+
 module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM users;`)
@@ -27,7 +30,9 @@ module.exports = (db) => {
     // Function to find user_id for given email
     getUserWithEmail(req.params.email)
       .then(user => {
-        req.session.user_id = user.id;
+        req.cookies["user_id"] = user.id;
+
+        // req.session.user_id = user.id;
         res.redirect('/', user.id);
       })
 
