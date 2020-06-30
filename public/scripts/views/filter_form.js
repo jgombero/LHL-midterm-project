@@ -2,8 +2,14 @@
 let $sidebar;
 let categorySelected;
 
+// Reset search if current category is clicked.
+
 const applyCategoryLinks = function() {
   $('.category-list').click(function() {
+    // Reset price filters
+    $('#min_price').val('');
+    $('#max_price').val('');
+
     const id = $(this).attr('id');
     const catID = id.slice(9,30);
     console.log('catID: ', catID);
@@ -58,10 +64,10 @@ const renderSidebar = function(categoryArray) {
       <div id="all-filters-container">
         <form id="price-search-form">
           <label for="min_price"></label>
-          <input type="text" name="min_price" class="apply-button" placeholder="$ Min">
+          <input type="text" id="min_price" name="min_price" class="apply-button" placeholder="$ Min">
           <p>-</p>
           <label for="max_price"></label>
-          <input type="text" name="max_price" class="apply-button" placeholder="$ Max">
+          <input type="text" id="max_pice" name="max_price" class="apply-button" placeholder="$ Max">
           <button class="btn btn-primary apply-button">Apply</button>
         </form>
         <div class="categories-group horizontal-scrollable">
