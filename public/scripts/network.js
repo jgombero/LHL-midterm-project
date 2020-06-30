@@ -1,11 +1,16 @@
 
 const login = function(data) {
   return $.ajax({
-    method: 'POST',
-    url: '/users/login',
-    data
+    url: `/users/login/${data.user_email}`
   });
 };
+
+const getLoginPage = function(data) {
+  return $.ajax({
+    url: '/users/login/:id',
+    data
+  })
+}
 
 const logOut = function(data) {
   return $.ajax({
@@ -19,6 +24,12 @@ const signUp = function(data) {
     method: 'POST',
     url: '/users/',
     data
+  });
+};
+
+const getSignUpPage = function(data) {
+  return $.ajax({
+    url: '/users/'
   });
 };
 
