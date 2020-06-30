@@ -85,11 +85,23 @@ const getAllCategories = function(db, options, limit = 20) {
 
 exports.getAllCategories = getAllCategories;
 
-getUserWithEmail = function(email) {
+const getUserWithEmail = function(email) {
   return db.query(`
   SELECT *
   FROM users
   WHERE email = $1;
   `, [ email ])
   .then(res => res.rows[0]);
-}
+};
+
+exports.getUserWithEmail = getUserWithEmail;
+
+const getUserMessages = function(userID) {
+  return db.query(`
+    SELECT * FROM messages
+    JOIN users ON (users.id = messages.from_user_id)
+    JOIN products ON (users.id = products.owner_id)
+    WHERE messages.from_user_id = $1 OR products.owner_id = $1
+  `, [userID])
+    .then(res => res.rows);
+};

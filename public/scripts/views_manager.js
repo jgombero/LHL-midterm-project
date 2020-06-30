@@ -14,7 +14,7 @@ window.views_manager.show = function(item) {
 
   $logInForm.detach();
   // $signUpForm.detach();
-  // $messages.detach();
+  $messages.detach();
   // $newProduct.detach();
 
   switch(item) {

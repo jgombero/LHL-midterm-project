@@ -20,6 +20,7 @@ $(() => {
   });
 
   $('#messages').click(function() {
+    views_manager.show('messages');
 
   });
 });
