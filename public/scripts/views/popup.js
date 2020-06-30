@@ -5,9 +5,11 @@ $(() => {
   $window.generatePopup = (id) => {
 
     const idStr = "product_id=" + id.slice(8,20);
+    console.log('idStr::', idStr);
 
     getAllProducts(idStr).then(function(json) {
       const productObj = json.products[0];
+      console.log('product obj to render popup', json.products);
       let $popup = $(`<div id='popup' class='popup'>
       <article class="inner-product-box product-detail-box">
         <div class='inner-product-header'>
