@@ -15,11 +15,12 @@ $(() => {
   });
 
 // Not too sure if right, but trying to setup views_manager
-// const $section = $('#products');
+// const $section = $('#main-container');
 
 // window.views_manager = {};
 
 // window.views_manager.show = function(item) {
+ // $sidebar.detatch();
 //   $products.detach();
 //   $logInForm.detach();
 //   $signUpForm.detach();
@@ -28,6 +29,7 @@ $(() => {
 
 //   switch(item) {
 //     case 'product':
+      // $sidebar.appendTo($section);
 //       $product.appendTo($section);
 //       break;
 //     case 'newProduct':

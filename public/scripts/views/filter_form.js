@@ -1,17 +1,11 @@
 const applyCategoryLinks = function() {
   $('.category-list').click(function() {
     const id = $(this).attr('id');
-    const catID = id.slice(9,30);
-    console.log(catID);
-    getAllProducts(`category_name=${catID}`).then(function(json){
+    const catName = id.slice(9,30);
+    getAllProducts(`category_name=${catName}`).then(function(json) {
       renderListings(json.products);
-    }
-
-    )
-
-
+    });
   });
-
 };
 
 const renderSidebarCategory = function(categoryName) {
@@ -21,9 +15,10 @@ const renderSidebarCategory = function(categoryName) {
   return markup;
 };
 
-const renderSidebar = function(categoryArray) {
+let $sidebar;
 
-  const $sidebar = `
+const renderSidebar = function(categoryArray) {
+  $sidebar = `
   <aside id="sidebar">
       <button id="filter-button" class="btn btn-success">Filter</button>
       <div id="all-filters-container">

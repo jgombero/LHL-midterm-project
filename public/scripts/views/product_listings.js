@@ -23,13 +23,13 @@ const renderListing = function(listingObj) {
 };
 
 const renderListings = function(productListingsArray) {
-  $('#products').empty();
+  $('#main-container').empty();
 
   for (const listing of productListingsArray) {
 
     const $listing = renderListing(listing);
 
-    $('#products').append($listing);
+    $('#main-container').append($listing);
 
   }
   applyPopups();

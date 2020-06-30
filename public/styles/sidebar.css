@@ -66,7 +66,7 @@ ul {
     position: fixed;
     float: left;
   } */
-  /* #products {
+  /* #main-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -132,7 +132,7 @@ ul {
   }
 
 /*
-  #products {
+  #main-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
