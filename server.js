@@ -52,9 +52,14 @@ app.use("/api/messages", messagesRoutes(db));
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   console.log('request to / received');
-  const user_id = req.session.user_id
-  console.log('USER ID ', user_id);
-  res.render("index", {user_id});
+  let user_id;
+  if (req.session) {
+    console.log('USER ID ', user_id);
+    user_id = req.session.user_id;
+    res.render("index", {user_id});
+  } else {
+    res.render("index", {user_id});
+  }
 });
 app.get("/test", (req, res) => {
   console.log('request to / received');

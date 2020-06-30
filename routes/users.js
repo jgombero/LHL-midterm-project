@@ -30,11 +30,9 @@ module.exports = (db) => {
     // Function to find user_id for given email
     getUserWithEmail(req.params.email)
       .then(user => {
-        req.cookies["user_id"] = user.id;
-
-        // req.session.user_id = user.id;
+        req.session.user_id = user.id;
         res.redirect('/', user.id);
-      })
+      });
 
     // Assign a cookie for the user_id we just looked up.
   })
