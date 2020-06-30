@@ -34,6 +34,12 @@ const getAllProductsFromDB = function(db, options, limit = 10) {
     queryString += `categories.id = $${queryParams.length} `;
   }
 
+  if (options.category_name) {
+    nextParam();
+    queryParams.push(`${options.category_name}`);
+    queryString += `categories.name = $${queryParams.length} `;
+  }
+
   if (options.min_price) {
     nextParam();
     queryParams.push(`${options.min_price}`);

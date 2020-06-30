@@ -3,6 +3,12 @@ const applyCategoryLinks = function() {
     const id = $(this).attr('id');
     const catID = id.slice(9,30);
     console.log(catID);
+    getAllProducts(`category_name=${catID}`).then(function(json){
+      renderListings(json.products);
+    }
+
+    )
+
 
   });
 
