@@ -31,5 +31,4 @@ window.views_manager.show = function(item) {
       break;
   }
 }
-});
 
