@@ -1,32 +1,73 @@
+// Initialize values
+let $sidebar;
+let categorySelected;
+
+// Reset search if current category is clicked.
+
 const applyCategoryLinks = function() {
   $('.category-list').click(function() {
+    // Reset price filters
+    $('#min_price').val('');
+    $('#max_price').val('');
+
     const id = $(this).attr('id');
     const catID = id.slice(9,30);
-    console.log(catID);
+    console.log('catID: ', catID);
 
+    // Remove existing category filter if highlighted.
+    console.log('current cat selected', categorySelected);
+    $(`#category-${categorySelected}`).addClass('category-button-normal');
+    $(`#category-${categorySelected}`).removeClass('category-button-selected');
+
+    // So we can track the category selected for the price-filter.
+    categorySelected = catID;
+
+    // CSS to make it stay highlighted.
+    $(this).removeClass('category-button-normal');
+    $(this).addClass('category-button-selected');
+
+    // Apply filter.
+    getAllProducts(`category_id=${catID}`).then(function(json) {
+      renderListings(json.products);
+      applyCategoryLinks();
+    });
   });
 
+
+  $('#price-search-form').submit(function(event) {
+    event.preventDefault();
+    console.log($(this));
+    console.log($(this).serialize());
+    let data = $(this).serialize();
+
+    if (categorySelected) {
+      data += `&category_id=${categorySelected}`;
+    }
+
+    getAllProducts(data).then(function(json) {
+      renderListings(json.products);
+    });
+  });
 };
 
-const renderSidebarCategory = function(categoryName) {
+const renderSidebarCategory = function(category) {
   const markup = `
-    <li id='category-${categoryName}' class='category-list'>${categoryName}</li>
+    <li id='category-${category.category_id}' class='category-list category-button-normal'>${category.category_name}</li>
   `;
   return markup;
 };
 
 const renderSidebar = function(categoryArray) {
-
-  const $sidebar = `
+  $sidebar = `
   <aside id="sidebar">
       <button id="filter-button" class="btn btn-success">Filter</button>
       <div id="all-filters-container">
         <form id="price-search-form">
           <label for="min_price"></label>
-          <input type="text" name="min_price" class="apply-button" placeholder="$ Min">
+          <input type="text" id="min_price" name="min_price" class="apply-button" placeholder="$ Min">
           <p>-</p>
           <label for="max_price"></label>
-          <input type="text" name="max_price" class="apply-button" placeholder="$ Max">
+          <input type="text" id="max_pice" name="max_price" class="apply-button" placeholder="$ Max">
           <button class="btn btn-primary apply-button">Apply</button>
         </form>
         <div class="categories-group horizontal-scrollable">
@@ -39,7 +80,7 @@ const renderSidebar = function(categoryArray) {
   $('main').prepend($sidebar);
 
   for (const category of categoryArray) {
-    const $category = renderSidebarCategory(category.category_name);
+    const $category = renderSidebarCategory(category);
     $('#category-list').append($category);
   }
 

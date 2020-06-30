@@ -30,19 +30,25 @@ const getAllProductsFromDB = function(db, options, limit = 10) {
 
   if (options.category_id) {
     nextParam();
-    queryParams.push(`${options.categories_id}`);
+    queryParams.push(`${options.category_id}`);
     queryString += `categories.id = $${queryParams.length} `;
+  }
+
+  if (options.category_name) {
+    nextParam();
+    queryParams.push(`${options.category_name}`);
+    queryString += `categories.name = $${queryParams.length} `;
   }
 
   if (options.min_price) {
     nextParam();
-    queryParams.push(`${options.min_price}`);
+    queryParams.push(`${options.min_price * 100}`);
     queryString += `products.price >= $${queryParams.length} `;
   }
 
   if (options.max_price) {
     nextParam();
-    queryParams.push(`${options.max_price}`);
+    queryParams.push(`${options.max_price * 100}`);
     queryString += `products.price <= $${queryParams.length} `;
   }
 
@@ -67,7 +73,7 @@ const getAllProductsFromDB = function(db, options, limit = 10) {
 exports.getAllProductsFromDB = getAllProductsFromDB;
 
 const getAllCategories = function(db, options, limit = 20) {
-  let queryString = `SELECT categories.name AS category_name
+  let queryString = `SELECT categories.name AS category_name, categories.id AS category_id
   FROM categories
   ORDER BY category_name
   LIMIT $1

@@ -13,8 +13,6 @@ const database = require('../server/database.js');
 // This is the productsRoutes(db) that is called from server.js
 module.exports = function(db) {
   router.get("/categories", (req, res) => {
-    console.log('request to get categories from Products API: ', req.query);
-
     database.getAllCategories(db, req.query, 20)
       .then(categories => {
         console.log('return products from db: ', categories);
