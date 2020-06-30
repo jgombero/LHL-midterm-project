@@ -14,10 +14,11 @@
   z-index: 4;
   position: fixed;
   margin: 0 auto;
-  top: 15%;
+  top: 10%;
   visibility: hidden;
   border: 0.2rem solid black;
   margin: 0 auto;
+  border-radius: 2rem;
   padding: 2rem;
   width: 100%;
   height: auto;
@@ -25,6 +26,15 @@
   vertical-align: middle;
   display: flex;
   flex-direction: column;
+}
+
+.popup-product-image {
+  height: auto;
+  width: 20rem;
+  object-fit: cover;
+  border-radius: 4px;
+  align-self: center;
+  margin-bottom: 2rem
 }
 
 .inner-product-header {

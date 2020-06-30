@@ -15,7 +15,7 @@ $(() => {
         <div class='inner-product-header'>
           <span class="close">&times;</span>
         </div>
-        <img src="${productObj.photo_url}" alt="" class="product-image">
+        <img src="${productObj.photo_url}" alt="" class="popup-product-image">
         <div class="inner-product-datails">
           <h3>${productObj.name}</h3>
           <p class="inner-product-description">${productObj.description}
