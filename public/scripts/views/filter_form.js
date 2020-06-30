@@ -1,21 +1,55 @@
+// Initialize values
+let $sidebar;
+let categorySelected;
+
 const applyCategoryLinks = function() {
   $('.category-list').click(function() {
     const id = $(this).attr('id');
-    const catName = id.slice(9,30);
-    getAllProducts(`category_name=${catName}`).then(function(json) {
+    const catID = id.slice(9,30);
+    console.log('catID: ', catID);
+
+    // Remove existing category filter if highlighted.
+    console.log('current cat selected', categorySelected);
+    $(`#category-${categorySelected}`).addClass('category-button-normal');
+    $(`#category-${categorySelected}`).removeClass('category-button-selected');
+
+    // So we can track the category selected for the price-filter.
+    categorySelected = catID;
+
+    // CSS to make it stay highlighted.
+    $(this).removeClass('category-button-normal');
+    $(this).addClass('category-button-selected');
+
+    // Apply filter.
+    getAllProducts(`category_id=${catID}`).then(function(json) {
+      renderListings(json.products);
+      applyCategoryLinks();
+    });
+  });
+
+
+  $('#price-search-form').submit(function(event) {
+    event.preventDefault();
+    console.log($(this));
+    console.log($(this).serialize());
+    let data = $(this).serialize();
+
+    if (categorySelected) {
+      data += `&category_id=${categorySelected}`;
+    }
+
+    getAllProducts(data).then(function(json) {
       renderListings(json.products);
     });
   });
 };
 
-const renderSidebarCategory = function(categoryName) {
+const renderSidebarCategory = function(category) {
   const markup = `
-    <li id='category-${categoryName}' class='category-list'>${categoryName}</li>
+    <li id='category-${category.category_id}' class='category-list category-button-normal'>${category.category_name}</li>
   `;
   return markup;
 };
-
-let $sidebar;
 
 const renderSidebar = function(categoryArray) {
   $sidebar = `
@@ -40,7 +74,7 @@ const renderSidebar = function(categoryArray) {
   $('main').prepend($sidebar);
 
   for (const category of categoryArray) {
-    const $category = renderSidebarCategory(category.category_name);
+    const $category = renderSidebarCategory(category);
     $('#category-list').append($category);
   }
 

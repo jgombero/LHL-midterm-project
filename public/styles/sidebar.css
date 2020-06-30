@@ -36,21 +36,25 @@ ul {
 
 .categories-group li {
   border-radius: 10px;
-  background-color: rgb(222, 231, 245);;
   color: black;
   text-align: center;
   padding: 14px;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
+}
 
+.category-button-normal {
+  background-color: rgb(222, 231, 245);
 }
 
 .categories-group li:hover {
   background-color: rgb(158, 189, 240)
 }
 
-
+.category-button-selected {
+  background-color: rgb(30, 102, 218);
+}
 .categories-group {
   /* background-color: #333; */
   overflow: auto;
