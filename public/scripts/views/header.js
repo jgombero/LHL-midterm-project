@@ -1,15 +1,14 @@
 $(() => {
 
-  const renderHeader = function(user) {
-
+  const renderHeader = function() {
     let $header;
 
-    if (!user) {
+    if (!req.session.user_id) {
       // change one of the first icons in if/else
       $header = `
       <ul>
         <li>
-          <i class="fa fa-user" aria-hidden="true"></i>
+          <i id="log_in" class="fa fa-user" aria-hidden="true"></i>
         </li>
         <li>
           <i id="favorites" class="fa fa-heart-o"></i>
@@ -50,6 +49,10 @@ $(() => {
     $('#main-header').append($header);
   };
   renderHeader();
+
+  $('#log_in').click(function() {
+    views_manager.show('logIn');
+  });
 
   $('#favorites').click(function() {
 
