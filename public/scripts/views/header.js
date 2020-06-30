@@ -2,27 +2,54 @@ $(() => {
 
   const renderHeader = function(user) {
 
+    let $header;
+
     if (!user) {
       // change one of the first icons in if/else
-      const $header = `
-      <i class="fa fa-user" aria-hidden="true"></i>
-      <i id="favorites" class="fa fa-heart-o"></i>
-      <i id="add_property" class="fa fa-plus" aria-hidden="true"></i>
-      <i id="my_properties" class="fa fa-briefcase" aria-hidden="true"></i>
-      <i id="messages" class="fa fa-envelope" aria-hidden="true"></i>
+      $header = `
+      <ul>
+        <li>
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </li>
+        <li>
+          <i id="favorites" class="fa fa-heart-o"></i>
+        </li>
+        <li>
+          <i id="add_property" class="fa fa-plus" aria-hidden="true"></i>
+        </li>
+        <li>
+          <i id="my_properties" class="fa fa-briefcase" aria-hidden="true"></i>
+        </li>
+        <li>
+          <i id="messages" class="fa fa-envelope" aria-hidden="true"></i>
+        </li>
+      </ul>
       `;
     } else {
-      const $header = `
-      <i class="fa fa-user" aria-hidden="true"></i>
-      <i id="favorites" class="fa fa-heart-o"></i>
-      <i id="add_property" class="fa fa-plus" aria-hidden="true"></i>
-      <i id="my_properties" class="fa fa-briefcase" aria-hidden="true"></i>
-      <i id="messages" class="fa fa-envelope" aria-hidden="true"></i>
+      $header = `
+      <ul>
+        <li>
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </li>
+        <li>
+          <i id="favorites" class="fa fa-heart-o"></i>
+        </li>
+        <li>
+          <i id="add_property" class="fa fa-plus" aria-hidden="true"></i>
+        </li>
+        <li>
+          <i id="my_properties" class="fa fa-briefcase" aria-hidden="true"></i>
+        </li>
+        <li>
+          <i id="messages" class="fa fa-envelope" aria-hidden="true"></i>
+        </li>
+      </ul>
       `;
     }
 
     $('#main-header').append($header);
   };
+  renderHeader();
 
   $('#favorites').click(function() {
 

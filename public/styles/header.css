@@ -1,10 +1,20 @@
 #main-header {
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
   border: 1px solid;
 }
 
-i {
+#main-header ul {
+  display:flex;
+  flex-direction: row;
+  justify-content:space-between;
+  list-style-type: none;
+  margin:0;
+  padding:0;
+}
+
+#main-header i {
   margin: 20px;
   font-size: 30px !important;
+  cursor: pointer;
 }
