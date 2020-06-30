@@ -48,12 +48,14 @@ $(() => {
       $('.close').click(function(event) {
         popup.remove();
         $('main').removeClass('blur');
+        applyPopups();
       });
       // Handles clicking outside of product box.
       window.onclick = function (event) {
         if (event.target === popupID) {
           $('main').removeClass('blur');
           popup.remove();
+          applyPopups();
         }
       };
     });

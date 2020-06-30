@@ -4,6 +4,7 @@ let applyPopups = () => {
     const id = $(this).attr('id');
     // Take ID for product and generates popup details.
     $window.generatePopup(id);
+    $('.product').unbind();
   });
 };
 
