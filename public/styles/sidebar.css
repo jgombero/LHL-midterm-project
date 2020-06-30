@@ -115,7 +115,7 @@ ul {
   }
 
   div#all-filters-container {
-    display: flex;
+    display: flex !important;
     margin: auto;
     /* display: inline-flex; */
     flex-direction: column;
