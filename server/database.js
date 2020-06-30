@@ -77,5 +77,13 @@ const getAllCategories = function(db, options, limit = 20) {
     .then(res => res.rows);
 };
 
-
 exports.getAllCategories = getAllCategories;
+
+getUserWithEmail = function(email) {
+  return db.query(`
+  SELECT *
+  FROM users
+  WHERE email = $1;
+  `, [ email ])
+  .then(res => res.rows[0]);
+}
