@@ -56,10 +56,8 @@ app.get("/", (req, res) => {
   if (req.session) {
     console.log('USER ID ', user_id);
     user_id = req.session.user_id;
-    res.render("index", {user_id});
-  } else {
-    res.render("index", {user_id});
   }
+  res.render("index", {user_id});
 });
 app.get("/test", (req, res) => {
   console.log('request to / received');

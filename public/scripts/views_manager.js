@@ -7,6 +7,8 @@ const $section = $('#main-container');
 window.views_manager = {};
 
 window.views_manager.show = function(item) {
+
+  const $products = $('#main-container');
   $products.detach();
   $logInForm.detach();
   $signUpForm.detach();
