@@ -1,27 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+<head>
+  <title>Home Page</title>
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type = "text/javascript" src="/scripts/views_manager.js"></script>
-  </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-  <body>
-    <h1>Hello World!</h1>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/sidebar.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/products.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/popup.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/views/product_listings.js"></script>
+  <script type="text/javascript" src="/scripts/views/popup.js"></script>
+
+  <script type="text/javascript" src="/scripts/views/filter_form.js"></script>
+  <script type="text/javascript" src="/scripts/network.js"></script>
+  <script type="text/javascript" src="/scripts/views_manager.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/views/header.js"></script>
+  <script type="text/javascript" src="/scripts/views/login_form.js"></script>
+</head>
+
+<body>
+
+  <header id="main-header"></header>
+
+  <main>
+    <section id="main-container"></section>
+  </main>
 
 
-    <div>
-      <form id="test-form" action='/messages/82828' method='post'>
-        <input type="text" name="example">
-        <button type='submit'></button>
-      </form>
 
-    </div>
-  </body>
+  <div>
+    <form id="test-form" action='/messages/82828' method='post'>
+      <input type="text" name="example" id="example2" placeholder="Search">
+      <button type='submit'>Search</button>
+    </form>
+
+  </div>
+</body>
+
 </html>
