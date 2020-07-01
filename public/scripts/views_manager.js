@@ -18,7 +18,7 @@ $(() => {
     $logInForm.detach();
     $signUpForm.detach();
     $messages.detach();
-    // $newProduct.detach();
+    $newProduct.detach();
 
     switch(item) {
     case 'product':

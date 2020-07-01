@@ -164,3 +164,19 @@ const getUserProducts = function(db, userID) {
 };
 
 exports.getUserProducts = getUserProducts;
+
+const postNewProduct = function(db, productData) {
+const queryParams = [ productData.owner_id, productData.title, productData.description, productData.price, productData.category, productData.photo_url ];
+
+let queryString = `
+INSERT INTO products (owner_id, name, description, price, category_id, photo_url)
+VALUES ($1, $2, $3, $4, $5, $6);
+`;
+
+return db.query(queryString, queryParams)
+.then(res => res.rows);
+};
+
+exports.postNewProduct = postNewProduct;
+
+
