@@ -17,7 +17,11 @@ $(() => {
   });
 
   $('#favorites').click(function() {
-
+    getAllFavorites()
+    .then(function(json) {
+      renderListings(json.favorites);
+      // views_manager.show('product');
+    })
   });
 
   $('#add_property').click(function() {

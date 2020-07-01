@@ -109,6 +109,20 @@ const getUserMessages = function(db, userID) {
 
 exports.getUserMessages = getUserMessages;
 
+const getUserFavorites = function(db, userID) {
+  return db.query(`
+  SELECT products.*
+  FROM products
+  JOIN favorites ON products.id = product_id
+  WHERE favorites.user_id = $1;
+  `, [ userID ])
+  .then(res => {
+    return res.rows;
+  })
+};
+
+exports.getUserFavorites = getUserFavorites;
+
 const getUniqueMessageTopics = function(db, userID) {
   return db.query(`
   SELECT DISTINCT products.owner_id, messages.from_user_id, products.name, products.photo_url, users.name AS owner_name, u2.name AS sender_name, products.id AS product_id
