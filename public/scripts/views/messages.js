@@ -38,7 +38,7 @@ const renderMessageConversations = function(messageArray, userID) {
       let messageSubject;
       if (message.from_user_id == userID) {
         messageSubject = $(`
-        <article class="message-subject" from='${message.from_user_id}' to='${message.owner_id}' product='${message.product_id}'>
+        <article class="message-subject" from='${message.from_user_id}' to='${message.to_user_id}' product='${message.product_id}'>
           <img class="message-image" src="${message.photo_url}">
           <div class="message-subject-text">
           <p class="product-price"><strong>${message.name}</strong></p>
@@ -79,6 +79,7 @@ const renderConversationMessages = function(messageData, fromID, toID, productID
   const messageContainer = $('#single-message-container');
 
   for (const message of messages) {
+    console.log(message);
     if (fromID == userID && message.owner_id == toID && productID == message.product_id) {
       let messageContent = $(`
       <div class="message-content outgoing-container">
@@ -112,6 +113,12 @@ const renderConversationMessages = function(messageData, fromID, toID, productID
     event.preventDefault();
     let data = $(this).serialize();
     data += `&from_user_id=${userID}&product_id=${productID}`;
+
+    if (fromID == userID) {
+      data += `&to_user_id=${toID}`;
+    } else {
+      data += `&to_user_id=${fromID}`;
+    }
     // +FROM USER + PRODUCT ID
     // console.log(data);
     sendMessage(data).then(function(json) {
@@ -119,8 +126,8 @@ const renderConversationMessages = function(messageData, fromID, toID, productID
         // store all users messages in messageData.
         messageData = [json.messages, json['userID']];
 
-        console.log('new JSON messages to render after sending:');
-        console.log(json.messages);
+        // console.log('new JSON messages to render after sending:');
+        // console.log(json.messages)
         $('#single-message-container').empty();
         renderConversationMessages(messageData, fromID, toID, productID);
       });
