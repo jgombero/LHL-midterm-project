@@ -90,12 +90,20 @@ const deleteProduct = function(data) {
   });
 };
 
+const getUniqueMessages = function(data) {
+  return $.ajax({
+    url: '/api/messages/unique',
+    data
+  });
+};
+
 const getAllMessages = function(data) {
   return $.ajax({
     url: '/api/messages',
     data
   });
 };
+
 
 const sendMessage = function(data) {
   // find productID in data

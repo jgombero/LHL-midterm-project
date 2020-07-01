@@ -1,20 +1,27 @@
-let $messages = $('No Messages');
-
+// Set up to allow for data caching.
 let messageData;
 
 const updateMessages = function() {
   // GROUP BY message request
-  getAllMessages().then(function(json) {
+  getUniqueMessages().then(function(json) {
+    // Render the subjects on the message page.
     renderMessageConversations(json.messages, json.userID);
+
+    // Pull all message-related data, including multiple messages in a single conversation.
+    getAllMessages().then(function(json) {
+      // store all users messages in messageData.
+      messageData = [json.messages, json['userID']];
+    });
   });
 };
 
 const renderMessageConversations = function(messageArray, userID) {
-  // Some sort of different render if no messages in array.
-  messageData = [messageArray, userID];
+
+  // need to update this.
   if (messageArray.length === 0) {
     $messages = $(`There are no messages`);
   } else {
+    // Base message HTML
     $messages = $(`
     <div id="messages-container">
       <div id="messages-list">
@@ -26,20 +33,19 @@ const renderMessageConversations = function(messageArray, userID) {
 
     $messages.appendTo('main');
 
+    // Creates the subjects (left side of screen)
     for (const message of messageArray) {
-      console.log(message);
-      console.log(userID);
       let messageSubject;
-      if (message.from_user_id === userID) {
+      if (message.from_user_id == userID) {
         messageSubject = $(`
-        <article class="message-subject" id='message-product-${message.product_id}'>
+        <article class="message-subject" from='${message.from_user_id}' to='${message.owner_id}' product='${message.product_id}'>
           <img class="message-image" src="${message.photo_url}">
           ${message.name} - To ${message.owner_name}
         </article>
       `);
       } else {
         messageSubject = $(`
-        <article class="message-subject" id='message-${message.message_id}'>
+        <article class="message-subject" from='${message.from_user_id}' to='${message.owner_id}' product='${message.product_id}'>
           <img class="message-image" src="${message.photo_url}">
           ${message.name} - From ${message.sender_name}
         </article>
@@ -49,35 +55,35 @@ const renderMessageConversations = function(messageArray, userID) {
     }
   }
 
+  // Apply on-click listener to load each conversation's data.
   $('.message-subject').click(function(event) {
-    console.log($(this).attr('id'));
-    const messageID = $(this).attr('id').slice(8,20);
+    const fromID = $(this).attr('from');
+    const toID = $(this).attr('to');
+    const productID = $(this).attr('product');
     $('#single-message-container').empty();
-    renderConversationMessages(messageData, messageID);
+    renderConversationMessages(messageData, fromID, toID, productID);
   });
 };
 
-const renderConversationMessages = function(messageData, messageID) {
+const renderConversationMessages = function(messageData, fromID, toID, productID) {
   const userID = messageData[1];
   const messages = messageData[0];
   const messageContainer = $('#single-message-container');
-  console.log('message-id', messageID);
+
   for (const message of messages) {
-    if (message.from_user_id == userID) {
+    if (fromID == userID && message.owner_id == toID && productID == message.product_id) {
       let messageContent = $(`
       <div class="message-content outgoing-container">
         <p class="outgoing-message">${message.message_text}</p>
       </div>
       `);
-
       messageContainer.append(messageContent);
-    } else if (message.owner_id == userID) {
+    } else if (toID == userID && message.from_user_id == fromID && productID == message.product_id) {
       let messageContent = $(`
       <div class="message-content">
          <p class="incoming-message">${message.message_text}</p>
       </div>
       `);
-
       messageContainer.append(messageContent);
     }
   }
