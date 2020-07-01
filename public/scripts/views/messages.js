@@ -138,6 +138,7 @@ const renderConversationMessages = function(messageData, fromID, toID, productID
         // console.log('new JSON messages to render after sending:');
         // console.log(json.messages)
         $('#single-message-container').empty();
+        console.log(messageData, fromID, toID, productID)
         renderConversationMessages(messageData, fromID, toID, productID);
       });
     });
