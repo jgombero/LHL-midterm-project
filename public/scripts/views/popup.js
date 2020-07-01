@@ -10,6 +10,7 @@ $(() => {
 
     getAllProducts(idStr).then(function(json) {
       const productObj = json.products[0];
+      console.log(productObj);
       console.log('product obj to render popup', json.products);
       let $popup = $(`<div id='popup' class='popup'>
       <article class="inner-product-box product-detail-box">
@@ -25,10 +26,10 @@ $(() => {
             <h3>$${(productObj.price / 100).toFixed(2)}</h3>
             <span class="close">&hearts;</span>
           </div>
-          <form id="send-message-form">
+          <form id="send-message-form" product-id="${productObj.id}" owner-id="${productObj.owner_id}">
              <div class="inner-product-footer">
               <label for="message-box"></label>
-              <input id="message-box" type="text" name="send_message_text" placeholder="Is this product still available?">
+              <input id="message-box" type="text" name="message_text" placeholder="Is this product still available?">
               <button id="submit-message-button" type="submit">Send</button>
             </div>
           </form>
@@ -61,6 +62,22 @@ $(() => {
           applyPopups();
         }
       };
+
+      $('#send-message-form').submit(function(event) {
+        event.preventDefault();
+        let data = $(this).serialize();
+        const productID=$(this).attr('product-id');
+        const ownerID = $(this).attr('owner-id');
+        data += `&product_id=${productID}&to_user_id=${ownerID}`;
+
+        console.log(data);
+        sendMessage(data).then(function (json) {
+          $('#send-message-form').html('Message Sent!');
+        });
+
+
+
+      })
     });
 
 

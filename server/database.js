@@ -2,10 +2,10 @@
 // db is the database passed through from Server.js.
 // options is the object that is sent from the AJAX request.
 const getAllProductsFromDB = function(db, options, limit = 10) {
-  console.log('options for database.getAllProducts: ', options);
+  // console.log('options for database.getAllProducts: ', options);
   const queryParams = [];
 
-  console.log('SQ request options: ', options);
+  // console.log('SQ request options: ', options);
 
   let queryString = `SELECT products.*, categories.id AS category_id, categories.name AS category_name
   FROM products
@@ -57,8 +57,8 @@ const getAllProductsFromDB = function(db, options, limit = 10) {
   LIMIT $${queryParams.length};
   `;
 
-  console.log('Products query string: ', queryString);
-  console.log('Product query params: ', queryParams);
+  // console.log('Products query string: ', queryString);
+  // console.log('Product query params: ', queryParams);
 
   return db.query(queryString, queryParams)
     .then(res => res.rows);
@@ -101,8 +101,7 @@ JOIN users ON (users.id = products.owner_id)
 JOIN users u2 ON (u2.id = messages.from_user_id)
 JOIN users u3 ON (u3.id = messages.to_user_id)
 WHERE messages.to_user_id = $1 OR messages.from_user_id = $1
-ORDER BY messages.time DESC;
-
+ORDER BY messages.time;
   `, [userID])
     .then(res => {
       return res.rows;
@@ -143,7 +142,7 @@ GROUP BY products.owner_id, messages.from_user_id, messages.to_user_id, products
 exports.getUniqueMessageTopics = getUniqueMessageTopics;
 
 const postNewMessage = function(db, messageData) {
-  console.log('final message data in query', messageData);
+  // console.log('final message data in query', messageData);
 
   return db.query(`
   INSERT INTO messages (from_user_id, to_user_id, product_id, message_text)
@@ -176,8 +175,8 @@ INSERT INTO products (owner_id, name, description, price, category_id, photo_url
 VALUES ($1, $2, $3, $4, $5, $6);
 `;
 
-return db.query(queryString, queryParams)
-.then(res => res.rows);
+  return db.query(queryString, queryParams)
+  .then(res => res.rows);
 };
 
 exports.postNewProduct = postNewProduct;

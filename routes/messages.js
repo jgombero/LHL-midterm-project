@@ -55,11 +55,12 @@ module.exports = (db) => {
       // Check if user is logged in
       console.log('req to API /messages: ', req.body);
       // let query = `SELECT * FROM widgets`;
-      // console.log(query);
+      // console.log(req.body);
+      req.body['from_user_id'] = req.cookies.user_id;
 
       database.postNewMessage(db, req.body)
         .then(messageResponse => {
-          console.log(messageResponse);
+          // console.log(messageResponse);
           res.send({messageResponse});
         })
         .catch(err => {

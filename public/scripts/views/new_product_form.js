@@ -46,8 +46,10 @@ $('#add-product-form').on('submit', function(event) {
 
   addProduct(data)
   .then(json => {
-    header.update(json.user);
     views_manager.show('product');
+    // header.update(json.user);
+    location.reload();
+
   });
 });
 

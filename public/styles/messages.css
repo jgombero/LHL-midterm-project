@@ -82,16 +82,33 @@
   justify-content: center;
 }
 .message-reply-input {
-  width: 75%;
+  width: 60%;
   border-radius: 3rem;
   padding: 0.5rem;
   outline: none;
 }
 .message-reply-button {
-  width: 20%;
+  width: 30%;
   border-radius: 3rem;
   padding: 0.5rem;
   border: 1px solid black;
   background-color: cornflowerblue;
 
+}
+
+@media screen and (min-width: 60em) {
+  .message-reply-input {
+    width: 75%;
+    border-radius: 3rem;
+    padding: 0.5rem;
+    outline: none;
+  }
+  .message-reply-button {
+    width: 20%;
+    border-radius: 3rem;
+    padding: 0.5rem;
+    border: 1px solid black;
+    background-color: cornflowerblue;
+
+  }
 }
