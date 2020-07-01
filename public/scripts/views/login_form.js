@@ -19,7 +19,7 @@ const applyLoginOverride = function() {
     login(data)
       .then(json => {
         console.log(json);
-        views_manager.show('products');
+        views_manager.show('product');
       });
   });
 };
