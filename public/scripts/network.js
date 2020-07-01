@@ -107,3 +107,9 @@ const sendMessage = function(data) {
     data
   });
 };
+
+const getAllFavorites = function() {
+  return $.ajax({
+    url: 'api/products/favorites'
+  });
+};

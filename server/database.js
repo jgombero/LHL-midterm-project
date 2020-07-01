@@ -114,3 +114,18 @@ const getUserMessages = function(db, userID) {
 };
 
 exports.getUserMessages = getUserMessages;
+
+
+const getUserFavorites = function(db, userID) {
+  return db.query(`
+  SELECT products.*
+  FROM products
+  JOIN favorites ON products.id = product_id
+  WHERE favorites.user_id = $1;
+  `, [ userID ])
+  .then(res => {
+    return res.rows;
+  })
+};
+
+exports.getUserFavorites = getUserFavorites;
