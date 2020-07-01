@@ -27,7 +27,6 @@ const renderMessageConversations = function(messageArray, userID) {
       <div id="messages-list">
       </div>
       <div id="single-message-container">
-      K
       </div>
     </div>`);
 
@@ -40,14 +39,20 @@ const renderMessageConversations = function(messageArray, userID) {
         messageSubject = $(`
         <article class="message-subject" from='${message.from_user_id}' to='${message.owner_id}' product='${message.product_id}'>
           <img class="message-image" src="${message.photo_url}">
-          ${message.name} - To ${message.owner_name}
-        </article>
+          <div class="message-subject-text">
+          <p class="product-price"><strong>${message.name}</strong></p>
+          <p class="product-name">To ${message.owner_name}</p>
+          </div>
+          </article>
       `);
       } else {
         messageSubject = $(`
         <article class="message-subject" from='${message.from_user_id}' to='${message.owner_id}' product='${message.product_id}'>
-          <img class="message-image" src="${message.photo_url}">
-          ${message.name} - From ${message.sender_name}
+        <img class="message-image" src="${message.photo_url}">
+        <div class="message-subject-text">
+          <p class="product-price"><strong>${message.name}</strong></p>
+          <p class="product-name">From ${message.sender_name}</p>
+        </div>
         </article>
       `);
       }
