@@ -87,7 +87,9 @@ ul {
   #sidebar {
     height: auto;
     width: 200px;
-    border: 1px solid;
+    border: 0.5px solid;
+    margin-top: .5rem;
+    border-radius: 1rem;
     overflow: auto;
     position: fixed;
     float: left;
@@ -129,7 +131,8 @@ ul {
 
   div#all-filters-container {
     display: flex !important;
-    margin: auto;
+    border-radius: 3rem;
+    margin: 0.1rem;
     /* display: inline-flex; */
     flex-direction: column;
     justify-content: flex-start;
