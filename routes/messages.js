@@ -25,13 +25,30 @@ module.exports = (db) => {
             .json({ error: err.message });
         });
 
-      // Not logged in
     } else {
 
       // NEED TO UPDATE THE REDIRECT
       res.redirect('/');
     }
+  });
+  router.get("/unique", (req, res) => {
+    if (req.cookies.user_id) {
+      const userID = req.cookies.user_id;
+      database.getUniqueMessageTopics(db, userID)
+        .then(messages => {
+          console.log('messages: ', messages);
+          res.send({messages, userID});
+        })
+        .catch(err => {
+          res
+            .status(500)
+            .json({ error: err.message });
+        });
+    } else {
 
+      // NEED TO UPDATE THE REDIRECT
+      res.redirect('/');
+    }
   });
 
   router.post("/new/", (req, res) => {
