@@ -140,3 +140,19 @@ const getUniqueMessageTopics = function(db, userID) {
 };
 
 exports.getUniqueMessageTopics = getUniqueMessageTopics;
+
+const postNewMessage = function(db, messageData) {
+  console.log('final message data in query', messageData);
+
+
+  return db.query(`
+  INSERT INTO messages (from_user_id, product_id, message_text)
+  VALUES ($1, $2, $3)
+  `, [messageData.from_user_id, messageData.product_id, messageData.message_text])
+    .then(res => {
+      console.log('Response from SQL', res);
+      return res.rows;
+    });
+};
+
+exports.postNewMessage = postNewMessage;

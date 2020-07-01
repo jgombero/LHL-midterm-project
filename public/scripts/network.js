@@ -107,7 +107,8 @@ const getAllMessages = function(data) {
 
 const sendMessage = function(data) {
   // find productID in data
-  const productID = data;
+
+  console.log('send message request', data);
 
   return $.ajax({
     method: 'POST',

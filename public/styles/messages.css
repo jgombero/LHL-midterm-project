@@ -71,6 +71,7 @@
 }
 
 .message-reply-form {
+  border: none;
 
 }
 
@@ -79,8 +80,6 @@
   flex-direction: row;
   width: 100%;
   justify-content: center;
-  border: 1px solid black;
-
 }
 .message-reply-input {
   width: 75%;

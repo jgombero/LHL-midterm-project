@@ -34,8 +34,6 @@ const applyCategoryLinks = function() {
 
   $('#price-search-form').submit(function(event) {
     event.preventDefault();
-    // console.log($(this));
-    // console.log($(this).serialize());
     let data = $(this).serialize();
 
     if (categorySelected) {

@@ -96,17 +96,35 @@ const renderConversationMessages = function(messageData, fromID, toID, productID
     }
   }
   // After For loop is done, render in the send-message form.
-
  const $replyForm = $(`
- <form class="message-reply-form>
-<div class="message-reply-div">
-  <input class="message-reply-input" type="text" name="message-text" placeholder="Reply">
-  <button type-"submit" class="message-reply-button">
-    Reply
-  </button>
-</div>
-</form>
- `)
+ <form id="message-reply-form">
+  <div class="message-reply-div">
+    <input class="message-reply-input" type="text" name="message_text" placeholder="Reply">
+      <button type-"submit" class="message-reply-button">
+        Reply
+      </button>
+  </div>
+  </form>
+ `);
  messageContainer.append($replyForm);
+
+  $('#message-reply-form').submit(function(event) {
+    event.preventDefault();
+    let data = $(this).serialize();
+    data += `&from_user_id=${userID}&product_id=${productID}`;
+    // +FROM USER + PRODUCT ID
+    // console.log(data);
+    sendMessage(data).then(function(json) {
+      getAllMessages().then(function(json) {
+        // store all users messages in messageData.
+        messageData = [json.messages, json['userID']];
+
+        console.log('new JSON messages to render after sending:');
+        console.log(json.messages);
+        $('#single-message-container').empty();
+        renderConversationMessages(messageData, fromID, toID, productID);
+      });
+    });
+  });
 
 };
