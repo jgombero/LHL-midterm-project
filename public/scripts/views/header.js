@@ -8,8 +8,12 @@ $(() => {
   });
 
   $('#log_out').click(function() {
-    logOut();
-    views_manager.show('product');
+    logOut()
+    .then(res => {
+      location.reload();
+      views_manager.show('product');
+    });
+
   });
 
   $('#favorites').click(function() {
