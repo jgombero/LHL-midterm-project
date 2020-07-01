@@ -7,6 +7,11 @@ $(() => {
     views_manager.show('logIn');
   });
 
+  $('#log_out').click(function() {
+    logOut();
+    views_manager.show('product');
+  });
+
   $('#favorites').click(function() {
 
   });

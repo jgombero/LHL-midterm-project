@@ -1,15 +1,16 @@
 /* eslint-disable no-undef */
-
+let $messages = $('No Messages');
 
 // Not too sure if right, but trying to setup views_manager
 
-window.views_manager = {};
 $(() => {
+
+  const $products = $('#main-container');
+
 
   window.views_manager.show = function(item) {
 
     const $section = $('main');
-    const $products = $('#main-container');
     $products.detach();
     $sidebar.detach();
 
@@ -21,7 +22,7 @@ $(() => {
     switch(item) {
       case 'product':
         $sidebar.appendTo($section);
-        $product.appendTo($section);
+        $products.appendTo($section);
         break;
       case 'newProduct':
         $newProduct.appendTo($section);
