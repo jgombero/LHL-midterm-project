@@ -16,7 +16,7 @@ const getLoginPage = function(data) {
 const logOut = function(data) {
   return $.ajax({
     method: 'POST',
-    url: '/users/logout'
+    url: 'api/users/logout'
   });
 };
 
