@@ -31,10 +31,13 @@ module.exports = (db) => {
   router.get("/login", (req, res) => {
     // Function to find user_id for given email
     console.log('REQ QUERY', req.query);
+    const userEmail = req.query.user_email;
+    console.log(userEmail);
 
-    database.getUserWithEmail(db, req.query.user_email)
+    database.getUserWithEmail(db, userEmail)
       .then(user => {
-        req.session.user_id = user.id;
+        console.log(user.id);
+        res.cookie('user_id', user.id);
         res.redirect('/');
       });
 

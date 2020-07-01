@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const cookieParser = require('cookie-parser');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -32,6 +33,7 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
+app.use(cookieParser());
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
@@ -53,9 +55,9 @@ app.use("/api/messages", messagesRoutes(db));
 app.get("/", (req, res) => {
   console.log('request to / received');
   let user_id;
-  if (req.session) {
+  if (req.cookies.user_id) {
     console.log('USER ID ', user_id);
-    user_id = req.session.user_id;
+    user_id = req.cookies.user_id;
   }
   res.render("index", {user_id});
 });

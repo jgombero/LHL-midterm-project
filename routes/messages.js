@@ -11,7 +11,7 @@ const router  = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     if (req.params) {
-      const userID = req.session.user_id;
+      const userID = req.cookies.user_id;
       console.log(userID);
       database.getUserMessages(userID)
         .then(messages => {

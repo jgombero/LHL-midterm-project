@@ -91,7 +91,10 @@ const getUserWithEmail = function(db, email) {
   FROM users
   WHERE email = $1;
   `, [ email ])
-    .then(res => res.rows[0]);
+    .then(res => {
+      console.log(res.rows[0]);
+      return res.rows[0];
+    })
 };
 
 exports.getUserWithEmail = getUserWithEmail;
