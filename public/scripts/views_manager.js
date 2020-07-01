@@ -18,6 +18,7 @@ $(() => {
     $logInForm.detach();
     $signUpForm.detach();
     $messages.detach();
+    $('#messages-container').detach();
     $newProduct.detach();
 
     switch(item) {
