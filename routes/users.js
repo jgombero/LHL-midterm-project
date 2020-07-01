@@ -34,7 +34,8 @@ module.exports = (db) => {
 
     database.getUserWithEmail(db, req.query.user_email)
       .then(user => {
-        req.session.user_id = user.id;
+        console.log(user);
+        req.session.userID = user.id;
         res.redirect('/');
       });
 
