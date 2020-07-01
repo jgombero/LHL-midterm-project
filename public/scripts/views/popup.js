@@ -44,15 +44,18 @@ $(() => {
       popup.addClass('showContainer');
       innerPopup.addClass('show');
       $('main').addClass('blur');
+      $('header').addClass('blur');
       // When close button on popup is clicked.
       $('.close').click(function(event) {
         popup.remove();
         $('main').removeClass('blur');
+        $('header').removeClass('blur');
         applyPopups();
       });
       // Handles clicking outside of product box.
       window.onclick = function (event) {
         if (event.target === popupID) {
+          $('header').removeClass('blur');
           $('main').removeClass('blur');
           popup.remove();
           applyPopups();
