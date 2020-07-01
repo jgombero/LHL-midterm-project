@@ -140,3 +140,14 @@ const getUniqueMessageTopics = function(db, userID) {
 };
 
 exports.getUniqueMessageTopics = getUniqueMessageTopics;
+
+const getUserProducts = function(db, userID) {
+  return db.query(`
+  SELECT *
+  FROM products
+  WHERE products.owner_id = $1;
+  `, [ userID ])
+  .then(res => res.rows);
+};
+
+exports.getUserProducts = getUserProducts;
