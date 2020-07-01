@@ -101,7 +101,7 @@ exports.getUserWithEmail = getUserWithEmail;
 
 const getUserMessages = function(db, userID) {
   return db.query(`
-  SELECT DISTINCT products.owner_id, messages.id AS message_id, messages.from_user_id, products.name, products.photo_url, message_text, users.name AS owner_name, u2.name AS sender_name
+  SELECT DISTINCT products.owner_id, products.id AS product_id, messages.id AS message_id, messages.from_user_id, products.name, products.photo_url, message_text, users.name AS owner_name, u2.name AS sender_name
   FROM messages
   JOIN products ON (products.id = messages.product_id)
   JOIN users ON (users.id = products.owner_id)
