@@ -7,16 +7,17 @@
 
 const express = require('express');
 const router  = express.Router();
+const database = require('../server/database.js');
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    if (req.params) {
+    if (req.cookies.user_id) {
       const userID = req.cookies.user_id;
       console.log(userID);
-      database.getUserMessages(userID)
+      database.getUserMessages(db, userID)
         .then(messages => {
-          console.log(messages);
-          res.json({messages});
+          console.log('messages: ', messages);
+          res.send({messages, userID});
         })
         .catch(err => {
           res
@@ -26,7 +27,9 @@ module.exports = (db) => {
 
       // Not logged in
     } else {
-      console.log('no user id');
+
+      // NEED TO UPDATE THE REDIRECT
+      res.redirect('/');
     }
 
   });

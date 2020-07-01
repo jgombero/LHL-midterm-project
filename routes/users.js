@@ -37,7 +37,11 @@ module.exports = (db) => {
     database.getUserWithEmail(db, userEmail)
       .then(user => {
         res.cookie('user_id', user.id);
+<<<<<<< HEAD
         res.send({user: {id: user.id, name: user.name, email: user.email}});
+=======
+        res.redirect('http://localhost:8080/');
+>>>>>>> 27817b1103cb7957364886b63bd72b876653b0b0
       });
 
     // Assign a cookie for the user_id we just looked up.

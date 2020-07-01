@@ -98,12 +98,19 @@ const getUserWithEmail = function(db, email) {
 
 exports.getUserWithEmail = getUserWithEmail;
 
-const getUserMessages = function(userID) {
+const getUserMessages = function(db, userID) {
   return db.query(`
-    SELECT * FROM messages
-    JOIN users ON (users.id = messages.from_user_id)
-    JOIN products ON (users.id = products.owner_id)
-    WHERE messages.from_user_id = $1 OR products.owner_id = $1
+  SELECT DISTINCT products.owner_id, products.id AS product_id, messages.id AS message_id, messages.from_user_id, products.name, products.photo_url, message_text, users.name AS owner_name, u2.name AS sender_name
+  FROM messages
+  JOIN products ON (products.id = messages.product_id)
+  JOIN users ON (users.id = products.owner_id)
+  JOIN users u2 ON (u2.id = messages.from_user_id)
+  WHERE products.owner_id = $1 OR messages.from_user_id = $1;
   `, [userID])
-    .then(res => res.rows);
+    .then(res => {
+      console.log('Messages SQL response:', res);
+      return res.rows;
+    });
 };
+
+exports.getUserMessages = getUserMessages;

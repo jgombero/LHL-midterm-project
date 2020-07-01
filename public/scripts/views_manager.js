@@ -5,40 +5,40 @@ let $messages = $('No Messages');
 
 $(() => {
 
-window.views_manager = {};
+  const $products = $('#main-container');
 
-const $products = $('#main-container');
 
-window.views_manager.show = function(item) {
+  window.views_manager.show = function(item) {
 
-  const $section = $('main');
-  $products.detach();
-  $sidebar.detach();
+    const $section = $('main');
+    $products.detach();
+    $sidebar.detach();
 
-  $logInForm.detach();
-  $signUpForm.detach();
-  $messages.detach();
-  // $newProduct.detach();
+    $logInForm.detach();
+    $signUpForm.detach();
+    $messages.detach();
+    // $newProduct.detach();
 
-  switch(item) {
-    case 'product':
-      $sidebar.appendTo($section);
-      $products.appendTo($section);
-      break;
-    case 'newProduct':
-      $newProduct.appendTo($section);
-      break;
-    case 'logIn':
-      $logInForm.appendTo($section);
-      applyLoginOverride();
-      break;
-    case 'signUp':
-      $signUpForm.appendTo($section);
-      break;
-    case 'messages':
-      $messages.appendTo($section);
-      break;
-  }
-}
+    switch(item) {
+      case 'product':
+        $sidebar.appendTo($section);
+        $products.appendTo($section);
+        break;
+      case 'newProduct':
+        $newProduct.appendTo($section);
+        break;
+      case 'logIn':
+        $logInForm.appendTo($section);
+        applyLoginOverride();
+        break;
+      case 'signUp':
+        $signUpForm.appendTo($section);
+        break;
+      case 'messages':
+        updateMessages();
+        $messages.appendTo($section);
+        break;
+    }
+  };
 
 });
