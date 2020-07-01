@@ -36,13 +36,18 @@ module.exports = (db) => {
 
     database.getUserWithEmail(db, userEmail)
       .then(user => {
-        console.log(user.id);
         res.cookie('user_id', user.id);
-        res.redirect('/');
+        res.send({user: {id: user.id, name: user.name, email: user.email}});
       });
 
     // Assign a cookie for the user_id we just looked up.
-  })
+  });
+
+  router.post("/logout", (req, res) => {
+    res.clearCookie('user_id');
+    res.send();
+  });
+
 
   return router;
 };
