@@ -92,7 +92,6 @@ const getUserWithEmail = function(db, email) {
   WHERE email = $1;
   `, [ email ])
     .then(res => {
-      console.log(res.rows[0]);
       return res.rows[0];
     })
 };
