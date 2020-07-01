@@ -122,3 +122,9 @@ const getAllFavorites = function() {
     url: 'api/products/favorites'
   });
 };
+
+const getMyProducts = function() {
+  return $.ajax({
+    url: 'api/products/me'
+  });
+};

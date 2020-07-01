@@ -156,3 +156,14 @@ const postNewMessage = function(db, messageData) {
 };
 
 exports.postNewMessage = postNewMessage;
+
+const getUserProducts = function(db, userID) {
+  return db.query(`
+  SELECT *
+  FROM products
+  WHERE products.owner_id = $1;
+  `, [ userID ])
+  .then(res => res.rows);
+};
+
+exports.getUserProducts = getUserProducts;

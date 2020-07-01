@@ -41,10 +41,18 @@ module.exports = function(db) {
   });
 
   router.get("/favorites", (req, res) => {
-    console.log(req.cookies.user_id);
     database.getUserFavorites(db, req.cookies.user_id)
     .then(favorites => {
       res.send({ favorites });
+    });
+  });
+
+  router.get("/me", (req, res) => {
+
+    database.getUserProducts(db, req.cookies.user_id)
+    .then(myProducts => {
+      console.log(myProducts);
+      res.send({myProducts});
     });
   });
 

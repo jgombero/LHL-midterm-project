@@ -24,12 +24,17 @@ $(() => {
     })
   });
 
-  $('#add_property').click(function() {
+  $('#add_product').click(function() {
 
   });
 
-  $('#my_properties').click(function() {
-
+  $('#my_products').click(function() {
+    getMyProducts()
+    .then(function(json) {
+      console.log('My JSON products:', json);
+      renderListings(json.myProducts);
+      // views_manager.show('product');
+    });
   });
 
   $('#messages').click(function() {
