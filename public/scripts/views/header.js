@@ -25,7 +25,7 @@ $(() => {
   });
 
   $('#add_product').click(function() {
-
+    views_manager.show('newProduct');
   });
 
   $('#my_products').click(function() {
