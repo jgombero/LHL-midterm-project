@@ -38,7 +38,7 @@ module.exports = (db) => {
       .then(user => {
         console.log(user.id);
         res.cookie('user_id', user.id);
-        res.redirect('/');
+        res.redirect('http://localhost:8080/');
       });
 
     // Assign a cookie for the user_id we just looked up.
