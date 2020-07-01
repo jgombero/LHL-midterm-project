@@ -1,7 +1,7 @@
 
 const $newProduct = $(`
 <h1>Add a product!</h1>
-<form id="add-product-form" method="POST" action="/api/products">
+<form id="add-product-form">
 <label for="title">Title</label>
 <input type="text" name="title" placeholder="Title" />
 <label for="description">Description</label>
@@ -33,21 +33,27 @@ const renderCategories = function(categoriesArray) {
 
 getAllCategories()
 .then(json => {
-  console.log(json.categories);
+  // console.log(json.categories);
   renderCategories(json.categories);
 });
 
 
 
-$('#add-product-form').on('submit', function(event) {
+
+
+$newProduct.on('submit', function(event) {
   event.preventDefault();
   const data = $(this).serialize();
-  console.log(data);
 
   addProduct(data)
   .then(json => {
-    views_manager.show('product');
+    // console.log('JSON:', json);
+    getAllProducts().then(function(json) {
+      // console.log('returned items from DB:', json);
+      enderListings(json.products);
+      location.reload();
+      // views_manager.show('product');
+    });
   });
 });
-
 

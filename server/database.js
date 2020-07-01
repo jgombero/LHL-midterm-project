@@ -174,7 +174,10 @@ VALUES ($1, $2, $3, $4, $5, $6);
 `;
 
 return db.query(queryString, queryParams)
-.then(res => res.rows);
+.then(res =>  {
+  // console.log('RES ROWS:', res.rows);
+  return res.rows;
+});
 };
 
 exports.postNewProduct = postNewProduct;

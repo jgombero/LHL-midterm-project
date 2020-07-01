@@ -5,7 +5,7 @@ let $messages = $('No Messages');
 
 $(() => {
 
-  const $products = $('#main-container');
+  let $products = $('#main-container');
 
   window.views_manager = {};
 
@@ -22,6 +22,9 @@ $(() => {
 
     switch(item) {
     case 'product':
+      $products = $('#main-container');
+
+      console.log('CAN YOU SEE ME');
       $sidebar.appendTo($section);
       $products.appendTo($section);
       break;

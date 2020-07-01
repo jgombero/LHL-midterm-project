@@ -62,7 +62,6 @@ module.exports = function(db) {
       req.body.price *= 100;
       database.postNewProduct(db, req.body)
       .then(addedProduct => {
-        console.log(addedProduct);
         res.send(addedProduct);
       });
     }
