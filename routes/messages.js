@@ -17,7 +17,7 @@ module.exports = (db) => {
       database.getUserMessages(db, userID)
         .then(messages => {
           console.log('messages: ', messages);
-          res.send({messages});
+          res.send({messages, userID});
         })
         .catch(err => {
           res
