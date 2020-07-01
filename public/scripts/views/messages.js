@@ -48,7 +48,7 @@ const renderMessageConversations = function(messageArray, userID) {
       `);
       } else {
         messageSubject = $(`
-        <article class="message-subject" from='${message.from_user_id}' to='${message.owner_id}' product='${message.product_id}'>
+        <article class="message-subject" from='${message.from_user_id}' to='${message.to_user_id}' product='${message.product_id}'>
         <img class="message-image" src="${message.photo_url}">
         <div class="message-subject-text">
           <p class="product-price"><strong>${message.name}</strong></p>
@@ -76,11 +76,20 @@ const renderConversationMessages = function(messageData, fromID, toID, productID
   // Checks all of a users messages that they are mentioned in. If The To/From/Product match, they are rendered to screen.
   const userID = messageData[1];
   const messages = messageData[0];
+  console.log(messageData)
   const messageContainer = $('#single-message-container');
 
   for (const message of messages) {
-    console.log(message);
-    if (fromID == userID && message.owner_id == toID && productID == message.product_id) {
+    console.log(fromID, toID, productID);
+    // console.log(message);
+    if (fromID == userID && message.to_user_id == toID && productID == message.product_id) {
+      let messageContent = $(`
+      <div class="message-content outgoing-container">
+        <p class="outgoing-message">${message.message_text}</p>
+      </div>
+      `);
+      messageContainer.append(messageContent);
+    } else if (fromID == message.to_user_id && toID == message.from_user_id && productID == message.product_id) {
       let messageContent = $(`
       <div class="message-content outgoing-container">
         <p class="outgoing-message">${message.message_text}</p>
