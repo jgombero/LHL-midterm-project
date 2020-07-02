@@ -33,7 +33,7 @@ const applyCategoryLinks = function() {
 
 
   $('#price-search-form').submit(function(event) {
-  event.preventDefault();
+    event.preventDefault();
     let data = $(this).serialize();
 
     if (categorySelected) {
