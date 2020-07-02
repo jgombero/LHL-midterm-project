@@ -12,17 +12,15 @@ $(() => {
       const productObj = json.products[0];
       console.log(productObj);
       console.log('product obj to render popup', json.products);
-      const productID = productObj.owner_id;
+      const ownerID = productObj.owner_id;
 
       getMyDetails()
       .then(json => {
-        const ownerID = json.user.id;
+        const userID = json.user.id;
 
-      console.log(ownerID);
-      console.log(productID);
       let $popup;
 
-      if (ownerID !== productID) {
+      if (userID !== ownerID) {
       $popup = $(`<div id='popup' class='popup'>
       <article class="inner-product-box product-detail-box">
         <div class='inner-product-header'>
@@ -67,8 +65,6 @@ $(() => {
               <button type="submit" id="sold-button">Mark as sold</button>
               <button type="submit" id="delete-button">Delete</button>
             </div>
-
-
           </article>
           </div>
         `);
@@ -111,10 +107,29 @@ $(() => {
         sendMessage(data).then(function (json) {
           $('#send-message-form').html('Message Sent!');
         });
+      });
+
+      $('#delete-button').click(function(event) {
+        event.preventDefault();
+        const data = `product_id=${productObj.id}`;
+
+        deleteProduct(data)
+        .then(json => {
+
+          getMyProducts()
+          .then(function(json) {
+            views_manager.show('clear');
+            console.log('My JSON products:', json);
+            renderListings(json.myProducts);
+            popup.remove();
+            $('main').removeClass('blur');
+            $('header').removeClass('blur');
+            applyPopups();
+          });
+        });
+      });
 
 
-
-      })
     });
 
 

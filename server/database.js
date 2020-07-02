@@ -191,3 +191,13 @@ const getCurrentUser = function(db, userID) {
 };
 
 exports.getCurrentUser = getCurrentUser;
+
+const deleteProduct = function(db, productID) {
+  return db.query(`
+  DELETE FROM products
+  WHERE id = $1;
+  `, [ productID ])
+  .then(res => res.rows);
+};
+
+exports.deleteProduct = deleteProduct;
