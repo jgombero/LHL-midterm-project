@@ -1,9 +1,10 @@
 const $searchbar = $(`
-<form id="search-form">
-  <div id="search-bar" class="buttonIn">
+<div id="search-bar" class="buttonIn">
+  <form id="search-form">
     <input type="text" id="search-bar-text" name="search_param" placeholder="Search all items...">
-    <button id="clear-button">Clear</button>
-</form>
+  </form>
+  <button id="clear-button">Clear</button>
+</div>
 `);
 
 const renderSearchbar = function() {
@@ -12,6 +13,8 @@ const renderSearchbar = function() {
 
 
 const applySearchFormHandler = function() {
+  console.log('applySEARCH TRIGGERED');
+
   $('#search-form').submit(function (event) {
     event.preventDefault();
     let data = $(this).serialize();
@@ -25,22 +28,19 @@ const applySearchFormHandler = function() {
 
   $('#clear-button').click(function (event) {
     event.preventDefault();
-
     console.log('clear button click');
-    $(`li .category-list`).addClass('category-button-normal');
-    $(`li .category-list`).removeClass('category-button-selected');
+    $(`li.category-list`).addClass('category-button-normal');
+    $(`li.category-list`).removeClass('category-button-selected');
     $('#search-bar-text').val('');
     $('#min_price').val('');
     $('#max_price').val('');
     getAllProducts().then(function (json) {
       renderListings(json.products);
-      applySearchFormHandler();
-      // $('#clear-button').hide();
     });
   });
 };
 
 $(() => {
-  applySearchFormHandler();
+
 });
 

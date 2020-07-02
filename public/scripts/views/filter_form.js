@@ -42,7 +42,6 @@ const applyCategoryLinks = function() {
 
     getAllProducts(data).then(function(json) {
       renderListings(json.products);
-      applySearchFormHandler();
     });
   });
 };
@@ -64,7 +63,7 @@ const renderSidebar = function(categoryArray) {
           <input type="text" id="min_price" name="min_price" class="apply-button" placeholder="$ Min">
           <p>-</p>
           <label for="max_price"></label>
-          <input type="text" id="max_pice" name="max_price" class="apply-button" placeholder="$ Max">
+          <input type="text" id="max_price" name="max_price" class="apply-button" placeholder="$ Max">
           <button class="btn btn-primary apply-button">Apply</button>
         </form>
         <div class="categories-group horizontal-scrollable">

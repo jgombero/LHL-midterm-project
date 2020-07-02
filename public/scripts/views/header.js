@@ -46,15 +46,11 @@ $(() => {
           renderListings(json.products);
           renderSearchbar();
           $sidebar.prependTo($section);
+          $('#search-bar-text').val('');
 
           // Normalize items
-          $('#search-bar-text').val('');
-          $('#min_price').val('');
-          $('#max_price').val('');
           $("#all-filters-container").slideUp();
-          // $('#clear-button').hide();
-
-          applySearchFormHandler();
+          // applySearchFormHandler();
         });
       });
 
