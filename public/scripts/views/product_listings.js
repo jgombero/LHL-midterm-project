@@ -1,4 +1,5 @@
 // let $products;
+let $window;
 
 let applyPopups = () => {
   // Applies click handler for all product images

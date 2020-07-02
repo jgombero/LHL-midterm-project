@@ -33,6 +33,7 @@
 
 .message-subject {
   border: 1px solid black;
+  background-color: white;
   margin: 0.3rem;
   border-radius: 2rem;
   height: 5rem;
@@ -40,6 +41,11 @@
   flex-direction: row;
   align-items: center;
 }
+
+.message-subject:hover {
+background-color: rgb(214, 212, 212);
+}
+
 
 .message-content {
   display: flex;
