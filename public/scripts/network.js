@@ -73,17 +73,29 @@ const getAllCategories = function(params) {
   });
 };
 
-const saveProduct = function(data) {
+const toggleFavorite = function(data) {
   // find productID in data
   const productID = data;
-  // city=calgary&minimum_price_per_night=400&maximum_price_per_night=500&minimum_rating=
 
   return $.ajax({
     method: 'POST',
-    url: `/api/product/${productID}/save`,
+    url: `/api/products/save/${productID}`,
     data,
   });
 };
+
+const checkFavorite = function(data) {
+
+  const productID = data;
+
+  return $.ajax({
+    method: 'GET',
+    url: `/api/products/save/${productID}`,
+    data,
+  });
+
+
+}
 
 const deleteProduct = function(data) {
   // find productID in data

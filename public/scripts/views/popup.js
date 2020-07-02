@@ -5,25 +5,25 @@ $(() => {
   $window = $('window');
   $window.generatePopup = (id) => {
 
-    const idStr = "product_id=" + id.slice(8,20);
+    const idStr = "product_id=" + id.slice(8, 20);
     console.log('idStr::', idStr);
 
-    getAllProducts(idStr).then(function(json) {
+    getAllProducts(idStr).then(function (json) {
       const productObj = json.products[0];
       console.log(productObj);
       console.log('product obj to render popup', json.products);
       const productID = productObj.owner_id;
 
       getMyDetails()
-      .then(json => {
-        const ownerID = json.user.id;
+        .then(json => {
+          const ownerID = json.user.id;
 
-      console.log(ownerID);
-      console.log(productID);
-      let $popup;
+          console.log(ownerID);
+          console.log(productID);
+          let $popup;
 
-      if (ownerID !== productID) {
-      $popup = $(`<div id='popup' class='popup'>
+          if (ownerID !== productID) {
+            $popup = $(`<div id='popup' class='popup'>
       <article class="inner-product-box product-detail-box">
         <div class='inner-product-header'>
           <span class="close">&times;</span>
@@ -35,7 +35,7 @@ $(() => {
           </p>
           <div class="inner-product-footer">
             <h3>$${(productObj.price / 100).toFixed(2)}</h3>
-            <span class="close">&hearts;</span>
+            <span class="favorite" product-id=${productObj.id}>&hearts;</span>
           </div>
           <form id="send-message-form" product-id="${productObj.id}" owner-id="${productObj.owner_id}">
              <div class="inner-product-footer">
@@ -47,8 +47,8 @@ $(() => {
         </div>
       </article>
       </div>`);
-      } else {
-        $popup = $(`
+          } else {
+            $popup = $(`
         <div id='popup' class='popup'>
         <article class="inner-product-box product-detail-box">
           <div class='inner-product-header'>
@@ -61,7 +61,7 @@ $(() => {
             </p>
             <div class="inner-product-footer">
               <h3>$${(productObj.price / 100).toFixed(2)}</h3>
-              <span class="close">&hearts;</span>
+              <span class="favorite" product-id=${productObj.id}>&hearts;</span>
             </div>
             <div id="sold-and-delete">
               <button type="submit" id="sold-button">Mark as sold</button>
@@ -72,50 +72,59 @@ $(() => {
           </article>
           </div>
         `);
-      }
+          }
 
-      $popup.appendTo('body');
+          $popup.appendTo('body');
 
-      const popup = $('#popup');
-      const popupID = document.getElementById('popup');
-      const innerPopup = $('.inner-product-box');
-      popup.addClass('showContainer');
-      innerPopup.addClass('show');
-      $('main').addClass('blur');
-      $('header').addClass('blur');
-      // When close button on popup is clicked.
-      $('.close').click(function(event) {
-        popup.remove();
-        $('main').removeClass('blur');
-        $('header').removeClass('blur');
-        applyPopups();
-      });
-      // Handles clicking outside of product box.
-      window.onclick = function (event) {
-        if (event.target === popupID) {
-          $('header').removeClass('blur');
-          $('main').removeClass('blur');
-          popup.remove();
-          applyPopups();
-        }
-      };
+          const popup = $('#popup');
+          const popupID = document.getElementById('popup');
+          const innerPopup = $('.inner-product-box');
+          popup.addClass('showContainer');
+          innerPopup.addClass('show');
+          $('main').addClass('blur');
+          $('header').addClass('blur');
+          // When close button on popup is clicked.
+          $('.close').click(function (event) {
+            popup.remove();
+            $('main').removeClass('blur');
+            $('header').removeClass('blur');
+            applyPopups();
+          });
+          // Handles clicking outside of product box.
+          window.onclick = function (event) {
+            if (event.target === popupID) {
+              $('header').removeClass('blur');
+              $('main').removeClass('blur');
+              popup.remove();
+              applyPopups();
+            }
+          };
 
-      $('#send-message-form').submit(function(event) {
-        event.preventDefault();
-        let data = $(this).serialize();
-        const productID=$(this).attr('product-id');
-        const ownerID = $(this).attr('owner-id');
-        data += `&product_id=${productID}&to_user_id=${ownerID}`;
+          $('#send-message-form').submit(function (event) {
+            event.preventDefault();
+            let data = $(this).serialize();
+            const productID = $(this).attr('product-id');
+            const ownerID = $(this).attr('owner-id');
+            data += `&product_id=${productID}&to_user_id=${ownerID}`;
 
-        console.log(data);
-        sendMessage(data).then(function (json) {
-          $('#send-message-form').html('Message Sent!');
+            console.log(data);
+            sendMessage(data).then(function (json) {
+              $('#send-message-form').html('Message Sent!');
+            });
+          });
+
+
+
+
+
+
+          $('.favorite').click(function (event) {
+            const prodID = $(this).attr('product-id');
+            $(this).addClass('favorited');
+            toggleFavorite(prodID).then(function (res) {
+            });
+          });
         });
-
-
-
-      })
-    });
 
 
     });

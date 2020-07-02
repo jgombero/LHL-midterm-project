@@ -21,7 +21,7 @@
   padding: 2rem;
   width: 100%;
   height: auto;
-  background-color: #dee7f5;
+  background-color: rgb(231,	210,	139	);
   vertical-align: middle;
   display: flex;
   flex-direction: column;
@@ -99,7 +99,7 @@ p .inner-product-description {
 .close {
   color: #aaaaaa;
   float: right;
-  font-size: 28px;
+  font-size: 3rem;
   font-weight: bold;
 }
 
@@ -109,6 +109,32 @@ p .inner-product-description {
   text-decoration: none;
   cursor: pointer;
 }
+
+.favorite {
+  font-size: 3rem;
+  color: #aaaaaa;
+}
+
+.favorite:hover,
+.favorite:focus {
+  color: rgb(243, 0, 0);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.favorited {
+  color: rgb(240, 255, 30);
+  text-decoration: none;
+  cursor: pointer;
+}
+.favorited:hover,
+.favorited:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
 
 #sold-and-delete {
   display: flex;

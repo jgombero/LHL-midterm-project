@@ -199,3 +199,25 @@ const getCurrentUser = function(db, userID) {
 };
 
 exports.getCurrentUser = getCurrentUser;
+
+const toggleFavorites = function (db, userID, productID) {
+  return db.query(`
+  INSERT INTO favorites (product_id, user_id, favorited) VALUES ($2, $1, TRUE)
+  ON CONFLICT (product_id, user_id)
+  DO UPDATE SET favorited = NOT favorites.favorited WHERE favorites.product_id = $2 AND favorites.user_id = $1
+  `, [userID, productID]);
+};
+
+exports.toggleFavorites = toggleFavorites;
+
+const checkFavorite = function (db, userID, productID) {
+  return db.query(`
+  SELECT * from tbl where userid = 123 limit 1;
+
+
+  `, [userID, productID])
+
+
+};
+
+exports.checkFavorite = checkFavorite;
