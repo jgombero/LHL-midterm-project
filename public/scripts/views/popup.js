@@ -21,7 +21,7 @@ $(() => {
           let $popup;
 
           if (userID !== ownerID) {
-            $popup = $(`< div id = 'popup' class= 'popup' >
+            $popup = $(`<div id='popup' class='popup'>
             <article class="inner-product-box product-detail-box">
               <div class='inner-product-header'>
                 <span class="close">&times;</span>
@@ -135,6 +135,13 @@ $(() => {
                   });
               });
           });
+
+          // $('#sold-button').click(function(event) {
+          //   event.preventDefault();
+          //   const data = `product_id=${productObj.id}`;
+
+
+          // });
         });
     });
   };
