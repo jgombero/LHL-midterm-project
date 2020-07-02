@@ -2,12 +2,25 @@
 let $window;
 
 let applyPopups = () => {
-  // Applies click handler for all product images
-  $('.product').click(function() {
-    const id = $(this).attr('id');
-    // Take ID for product and generates popup details.
-    $window.generatePopup(id);
-    $('.product').unbind();
+  getMyDetails()
+  .then(json => {
+  let isLoggedIn = false;
+
+    if (json.user) {
+      isLoggedIn = true;
+    }
+
+    // Applies click handler for all product images
+    $('.product').click(function() {
+      if (isLoggedIn) {
+      const id = $(this).attr('id');
+      // Take ID for product and generates popup details.
+      $window.generatePopup(id);
+      $('.product').unbind();
+      } else {
+        views_manager.show('logIn');
+      }
+    });
   });
 };
 
