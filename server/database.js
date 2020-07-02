@@ -189,4 +189,13 @@ VALUES ($1, $2, $3, $4, $5, $6);
 
 exports.postNewProduct = postNewProduct;
 
+const getCurrentUser = function(db, userID) {
+  return db.query(`
+  SELECT *
+  FROM users
+  WHERE id = $1;
+  `, [ userID ])
+  .then(res => res.rows[0]);
+};
 
+exports.getCurrentUser = getCurrentUser;

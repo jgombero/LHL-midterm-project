@@ -1,4 +1,10 @@
 
+const getMyDetails = function() {
+  return $.ajax({
+    url: 'api/users/getDetails'
+  });
+}
+
 const login = function(data) {
   console.log('network.js LOGIN function triggered. Data Sent: ', data);
   return $.ajax({

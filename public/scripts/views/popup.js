@@ -12,7 +12,18 @@ $(() => {
       const productObj = json.products[0];
       console.log(productObj);
       console.log('product obj to render popup', json.products);
-      let $popup = $(`<div id='popup' class='popup'>
+      const productID = productObj.owner_id;
+
+      getMyDetails()
+      .then(json => {
+        const ownerID = json.user.id;
+
+      console.log(ownerID);
+      console.log(productID);
+      let $popup;
+
+      if (ownerID !== productID) {
+      $popup = $(`<div id='popup' class='popup'>
       <article class="inner-product-box product-detail-box">
         <div class='inner-product-header'>
           <span class="close">&times;</span>
@@ -36,6 +47,32 @@ $(() => {
         </div>
       </article>
       </div>`);
+      } else {
+        $popup = $(`
+        <div id='popup' class='popup'>
+        <article class="inner-product-box product-detail-box">
+          <div class='inner-product-header'>
+            <span class="close">&times;</span>
+          </div>
+          <img src="${productObj.photo_url}" alt="" class="popup-product-image">
+          <div class="inner-product-datails">
+            <h3>${productObj.name}</h3>
+            <p class="inner-product-description">${productObj.description}
+            </p>
+            <div class="inner-product-footer">
+              <h3>$${(productObj.price / 100).toFixed(2)}</h3>
+              <span class="close">&hearts;</span>
+            </div>
+            <div id="sold-and-delete">
+              <button type="submit" id="sold-button">Mark as sold</button>
+              <button type="submit" id="delete-button">Delete</button>
+            </div>
+
+
+          </article>
+          </div>
+        `);
+      }
 
       $popup.appendTo('body');
 
@@ -81,7 +118,7 @@ $(() => {
     });
 
 
-
+    });
   }
 
 });
