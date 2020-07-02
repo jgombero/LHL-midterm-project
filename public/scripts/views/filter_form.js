@@ -33,7 +33,7 @@ const applyCategoryLinks = function() {
 
 
   $('#price-search-form').submit(function(event) {
-    event.preventDefault();
+  event.preventDefault();
     let data = $(this).serialize();
 
     if (categorySelected) {
@@ -56,7 +56,7 @@ const renderSidebarCategory = function(category) {
 const renderSidebar = function(categoryArray) {
   $sidebar = $(`
   <aside id="sidebar">
-      <button id="filter-button" class="btn btn-success">Filter</button>
+      <button id="filter-button" class="btn">Filter</button>
       <div id="all-filters-container">
         <form id="price-search-form">
           <label for="min_price"></label>
