@@ -85,17 +85,13 @@ const toggleFavorite = function(data) {
 };
 
 const checkFavorite = function(data) {
-
   const productID = data;
-
   return $.ajax({
     method: 'GET',
     url: `/api/products/save/${productID}`,
     data,
   });
-
-
-}
+};
 
 const deleteProduct = function(data) {
   // find productID in data
