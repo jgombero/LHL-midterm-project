@@ -13,7 +13,7 @@
   z-index: 4;
   position: fixed;
   margin: 0 auto;
-  top: 10%;
+  top: 5%;
   visibility: hidden;
   border: 0.2rem solid black;
   margin: 0 auto;
@@ -33,7 +33,8 @@
   object-fit: cover;
   border-radius: 4px;
   align-self: center;
-  margin-bottom: 2rem
+  margin-bottom: 2rem;
+  max-height: 300px;
 }
 
 .inner-product-header {
