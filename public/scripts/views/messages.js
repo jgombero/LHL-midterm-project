@@ -83,19 +83,19 @@ const renderConversationMessages = function (messageData, fromID, toID, productI
     // Go through all messages user has sent or received. If product ID matches,
     // categorize message appropriately.
     if (productID == message.product_id) {
-      if (userID == message.from_user_id) {
+      if (userID == message.from_user_id && (message.to_user_id == fromID || message.to_user_id == toID)) {
         let messageContent = $(`
       <div class="message-content outgoing-container">
         <p class="outgoing-message">${message.message_text}</p>
       </div>
        `);
         messageContainer.append(messageContent);
-      } else if (userID == message.to_user_id) {
+      } else if (userID == message.to_user_id && message.from_user_id == fromID) {
         let messageContent = $(`
-      <div class="message-content">
-         <p class="incoming-message">${message.message_text}</p>
-      </div>
-      `);
+        <div class="message-content">
+           <p class="incoming-message">${message.message_text}</p>
+        </div>
+        `);
         messageContainer.append(messageContent);
       }
     }

@@ -117,19 +117,19 @@ p .inner-product-description {
 
 .favorite:hover,
 .favorite:focus {
-  color: rgb(243, 0, 0);
+  color: rgb(240, 255, 30);
   text-decoration: none;
   cursor: pointer;
 }
 
 .favorited {
-  color: rgb(240, 255, 30);
+  color: #000;
   text-decoration: none;
   cursor: pointer;
 }
 .favorited:hover,
 .favorited:focus {
-  color: #000;
+  color: red;
   text-decoration: none;
   cursor: pointer;
 }

@@ -1,4 +1,4 @@
-let $window;
+
 let $popup;
 
 $(() => {

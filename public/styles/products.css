@@ -14,6 +14,7 @@
   margin: 5px;
   border: 1px rgb(37,37,37) solid;
   border-radius: 4px;
+  padding-bottom: .2rem;
 }
 
 .product-image {
@@ -37,6 +38,16 @@
 .product-price {
   margin: 0px;
 }
+
+.sold {
+  position: relative;
+  /* bottom: 40px; */
+  padding-bottom: 20p;
+  /* right: 20px; */
+  background-color: #212529;
+  color: white;
+}
+
 
 /* MEDIA QUERIES */
 

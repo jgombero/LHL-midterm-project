@@ -1,4 +1,5 @@
 // let $products;
+let $window;
 
 let applyPopups = () => {
   // Applies click handler for all product images
@@ -11,16 +12,29 @@ let applyPopups = () => {
 };
 
 const renderListing = function(listingObj) {
-  // console.log('listing obj: ', listingObj);
-  const markup = `
-  <article class="product" id="product-${listingObj.id}">
-    <img src="${listingObj.photo_url}" alt="" class="product-image">
-    <div class="product-text">
-      <p class="product-name">${listingObj.name}</p>
-      <p class="product-price"><strong>$${(listingObj.price / 100).toFixed(2)}</strong></p>
-    </div>
-  </article>
-  `;
+  console.log('listing obj: ', listingObj);
+  let markup;
+  if (listingObj.available) {
+    markup = `
+    <article class="product" id="product-${listingObj.id}">
+      <img src="${listingObj.photo_url}" alt="" class="product-image">
+      <div class="product-text">
+        <p class="product-name">${listingObj.name}</p>
+        <p class="product-price"><strong>$${(listingObj.price / 100).toFixed(2)}</strong></p>
+      </div>
+    </article>
+    `;
+  } else {
+    markup = `
+    <article class="product sold" id="product-${listingObj.id}">
+      <img src="${listingObj.photo_url}" alt="" class="product-image">
+      <div class="product-text">
+        <p class="product-name">${listingObj.name}</p>
+        <p class="product-price"><strong>SOLD!</strong></p>
+      </div>
+    </article>
+    `;
+  }
   return markup;
 };
 
