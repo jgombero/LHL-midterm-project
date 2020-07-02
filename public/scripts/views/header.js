@@ -25,6 +25,28 @@ $(() => {
     })
   });
 
+  $('#all_products').click(function() {
+    getAllProducts().then(function(json) {
+      renderListings(json.products);
+      $searchbar.prependTo($section);
+      $sidebar.prependTo($section);
+      // views_manager.show('product');
+    });
+  });
+
+
+
+
+
+  $('#favorites').click(function() {
+    getAllFavorites()
+    .then(function(json) {
+      views_manager.show('clear');
+      renderListings(json.favorites);
+      // views_manager.show('product');
+    })
+  });
+
   $('#add_product').click(function() {
     views_manager.show('newProduct');
   });

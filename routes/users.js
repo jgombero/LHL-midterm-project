@@ -50,9 +50,9 @@ module.exports = (db) => {
 
   router.get('/getDetails', (req, res) => {
     database.getCurrentUser(db, req.cookies.user_id)
-    .then(user => {
-      res.send({ user });
-    });
+      .then(user => {
+        res.send({ user });
+      });
   });
 
 
