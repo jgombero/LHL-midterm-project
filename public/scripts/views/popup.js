@@ -21,30 +21,40 @@ $(() => {
           let $popup;
 
           if (userID !== ownerID) {
+<<<<<<< HEAD
             $popup = $(`<div id='popup' class='popup'>
             <article class="inner-product-box product-detail-box">
               <div class='inner-product-header'>
                 <span class="close">&times;</span>
               </div>
               <img src="${productObj.photo_url}" alt="" class="popup-product-image">
+=======
+            $popup = $(`
+            <div id='popup' class= 'popup'>
+              <article class="inner-product-box product-detail-box">
+                <div class='inner-product-header'>
+                  <span class="close">&times;</span>
+                </div>
+                <img src="${productObj.photo_url}" alt="" class="popup-product-image">
+>>>>>>> 0647674bbf058821549cb691f3aba933bb5d97cd
                 <div class="inner-product-datails">
                   <h3>${productObj.name}</h3>
                   <p class="inner-product-description">${productObj.description}
                   </p>
-                  <div class="inner-product-footer">
-                    <h3>$${(productObj.price / 100).toFixed(2)}</h3>
-                    <span class="favorite" product-id=${productObj.id}>&hearts;</span>
-                  </div>
+                    <div class="inner-product-footer">
+                      <h3>$${(productObj.price / 100).toFixed(2)}</h3>
+                      <span class="favorite" product-id=${productObj.id}>&hearts;</span>
+                    </div>
                   <form id="send-message-form" product-id="${productObj.id}" owner-id="${productObj.owner_id}">
                     <div class="inner-product-footer">
                       <label for="message-box"></label>
                       <input id="message-box" type="text" name="message_text" placeholder="Is this product still available?">
-                        <button id="submit-message-button" type="submit">Send</button>
-            </div>
-          </form>
-        </div>
-      </article>
-      </div>`);
+                      <button id="submit-message-button" type="submit">Send</button>
+                    </div>
+                  </form>
+                </div>
+                </article>
+            </div>`);
           } else {
             $popup = $(`
         <div id='popup' class='popup'>
@@ -79,6 +89,8 @@ $(() => {
           innerPopup.addClass('show');
           $('main').addClass('blur');
           $('header').addClass('blur');
+
+
           // When close button on popup is clicked.
           $('.close').click(function (event) {
             popup.remove();
@@ -122,7 +134,6 @@ $(() => {
 
             deleteProduct(data)
               .then(json => {
-
                 getMyProducts()
                   .then(function (json) {
                     views_manager.show('clear');
