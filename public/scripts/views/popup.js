@@ -21,14 +21,6 @@ $(() => {
           let $popup;
 
           if (userID !== ownerID) {
-<<<<<<< HEAD
-            $popup = $(`<div id='popup' class='popup'>
-            <article class="inner-product-box product-detail-box">
-              <div class='inner-product-header'>
-                <span class="close">&times;</span>
-              </div>
-              <img src="${productObj.photo_url}" alt="" class="popup-product-image">
-=======
             $popup = $(`
             <div id='popup' class= 'popup'>
               <article class="inner-product-box product-detail-box">
@@ -36,7 +28,6 @@ $(() => {
                   <span class="close">&times;</span>
                 </div>
                 <img src="${productObj.photo_url}" alt="" class="popup-product-image">
->>>>>>> 0647674bbf058821549cb691f3aba933bb5d97cd
                 <div class="inner-product-datails">
                   <h3>${productObj.name}</h3>
                   <p class="inner-product-description">${productObj.description}
@@ -140,14 +131,12 @@ $(() => {
               });
           });
 
-<<<<<<< HEAD
           // $('#sold-button').click(function(event) {
           //   event.preventDefault();
           //   const data = `product_id=${productObj.id}`;
 
 
           // });
-=======
           const toggleFavCSS = function(elem) {
             if (elem.attr('favoriteBool') === 'true') {
               elem.removeClass('favorited');
@@ -182,7 +171,6 @@ $(() => {
               $('#favorite-button').attr('favoriteBool','false');
             }
           });
->>>>>>> 63aec539ad2da25ccedd1982fc3055e944672c9e
         });
     });
   };
