@@ -103,6 +103,15 @@ const deleteProduct = function(data) {
   });
 };
 
+const markProductSold = function(data) {
+  const productID = data;
+
+  return $.ajax({
+    method: 'POST',
+    url: `api/products/sold?${productID}`
+  });
+};
+
 const getUniqueMessages = function(data) {
   return $.ajax({
     url: '/api/messages/unique',

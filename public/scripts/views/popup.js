@@ -131,12 +131,27 @@ $(() => {
               });
           });
 
-          // $('#sold-button').click(function(event) {
-          //   event.preventDefault();
-          //   const data = `product_id=${productObj.id}`;
+          $('#sold-button').click(function(event) {
+            event.preventDefault();
+            const data = `product_id=${productObj.id}`;
 
+            markProductSold(data)
+            .then(json => {
+              // need to apply css here to show product is sold??
+              console.log(json);
+              getMyProducts()
+              .then(function (json) {
+                views_manager.show('clear');
+                console.log('My JSON products:', json);
+                renderListings(json.myProducts);
+                popup.remove();
+                $('main').removeClass('blur');
+                $('header').removeClass('blur');
+                applyPopups();
+              });
+            });
+          });
 
-          // });
           const toggleFavCSS = function(elem) {
             if (elem.attr('favoriteBool') === 'true') {
               elem.removeClass('favorited');

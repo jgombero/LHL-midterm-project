@@ -96,6 +96,13 @@ module.exports = function (db) {
     });
   });
 
+  router.post("/sold", (req, res) => {
+    database.toggleSold(db, req.query.product_id)
+    .then(product => {
+      res.send(product);
+    })
+  });
+
   return router;
 
 

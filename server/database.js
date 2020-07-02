@@ -227,3 +227,14 @@ const deleteProduct = function(db, productID) {
 };
 
 exports.deleteProduct = deleteProduct;
+
+const toggleSold = function(db, productID) {
+  return db.query(`
+  UPDATE products
+    SET available = NOT available
+  WHERE id = $1;
+  `, [ productID ])
+  .then(res => res.rows);
+};
+
+exports.toggleSold = toggleSold;
