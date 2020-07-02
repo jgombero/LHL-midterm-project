@@ -73,6 +73,10 @@ $(() => {
 
           $popup.appendTo('body');
 
+          if (!productObj.available) {
+            $('#sold-button').text('List for Sale')
+          }
+
           const popup = $('#popup');
           const popupID = document.getElementById('popup');
           const innerPopup = $('.inner-product-box');
@@ -146,6 +150,7 @@ $(() => {
                 popup.remove();
                 $('main').removeClass('blur');
                 $('header').removeClass('blur');
+                // applyPopups();
               });
             });
           });
