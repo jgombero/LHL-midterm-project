@@ -195,7 +195,7 @@ const getCurrentUser = function(db, userID) {
   FROM users
   WHERE id = $1;
   `, [ userID ])
-  .then(res => res.rows[0]);
+    .then(res => res.rows[0]);
 };
 
 exports.getCurrentUser = getCurrentUser;
@@ -212,12 +212,8 @@ exports.toggleFavorites = toggleFavorites;
 
 const checkFavorite = function (db, userID, productID) {
   return db.query(`
-  SELECT * from tbl where userid = 123 limit 1;
-
-
-  `, [userID, productID])
-
-
+  SELECT * from favorites where user_id = $1 AND product_id = $2;
+  `, [userID, productID]);
 };
 
 exports.checkFavorite = checkFavorite;
