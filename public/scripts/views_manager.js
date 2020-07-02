@@ -21,6 +21,7 @@ $(() => {
     $sidebar.detach();
     $logInForm.detach();
     $signUpForm.detach();
+    $searchbar.detach();
     // $messages.detach();
     $('#messages-container').remove();
     $newProduct.detach();
@@ -33,6 +34,8 @@ $(() => {
       console.log('CAN YOU SEE ME', myProducts, $products.html());
       $sidebar.appendTo($section);
       $products.appendTo($section);
+      $searchbar.prependTo($section);
+
       break;
     case 'newProduct':
       $newProduct.appendTo($section);
