@@ -12,7 +12,7 @@ let applyPopups = () => {
 };
 
 const renderListing = function(listingObj) {
-  console.log('listing obj: ', listingObj);
+  // console.log('listing obj: ', listingObj);
   let markup;
   if (listingObj.available) {
     markup = `
