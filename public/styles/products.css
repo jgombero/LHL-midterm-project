@@ -17,6 +17,10 @@
   padding-bottom: .2rem;
 }
 
+.product:hover {
+  box-shadow: 8px 7px #363636;
+}
+
 .product-image {
   height: 11rem;
   width: 100%;
