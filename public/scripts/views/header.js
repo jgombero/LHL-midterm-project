@@ -26,6 +26,7 @@ $(() => {
   });
 
   $('#all_products').click(function() {
+    views_manager.show('clear');
     getAllProducts().then(function(json) {
       renderListings(json.products);
       $searchbar.prependTo($section);
