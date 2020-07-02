@@ -41,6 +41,7 @@ $(() => {
 
     $('#all_products').click(function() {
       getAllProducts().then(function(json) {
+        views_manager.show('clear');
         views_manager.show('product');
 
         renderListings(json.products);
