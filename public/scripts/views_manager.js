@@ -1,31 +1,36 @@
 /* eslint-disable no-undef */
 let $messages = $('No Messages');
-
+let $section;
 // Not too sure if right, but trying to setup views_manager
 
+window.views_manager = {};
 $(() => {
-
-  let $products = $('#main-container');
-
-  window.views_manager = {};
 
 
   window.views_manager.show = function(item) {
 
-    const $section = $('main');
-    $products.detach();
+    let $products = $('#main-container');
+
+    // Stores main-container locally, to be retrieved later.
+    // "Pass-by-reference - HTML won't be modified by Empty or Detatch.
+    // Reccomendation: Don't empyt or detach main-container outside of this file
+    // (in the future)
+    let myProducts = $('#main-container').html();
+    $section = $('main');
+    $products.empty();
     $sidebar.detach();
     $logInForm.detach();
     $signUpForm.detach();
-    $messages.detach();
-    $('#messages-container').detach();
+    // $messages.detach();
+    $('#messages-container').remove();
     $newProduct.detach();
 
     switch(item) {
     case 'product':
-      $products = $('#main-container');
+      // $products = $('#main-container');
+      $products = $(myProducts);
 
-      console.log('CAN YOU SEE ME');
+      console.log('CAN YOU SEE ME', myProducts, $products.html());
       $sidebar.appendTo($section);
       $products.appendTo($section);
       break;
@@ -40,9 +45,10 @@ $(() => {
       $signUpForm.appendTo($section);
       break;
     case 'messages':
-      $('#messages-container').remove();
       updateMessages();
       $messages.appendTo($section);
+      break;
+    case 'clear':
       break;
     }
   };

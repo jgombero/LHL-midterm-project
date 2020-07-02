@@ -7,6 +7,12 @@ html {
 main {
   display: flex;
   flex-wrap: wrap;
+  background-color: rgb(254,212,48);
+}
+
+body {
+  background-color: rgb(254,212,48);
+
 }
 
 /* ALEX's TEST CSS CODE */
@@ -32,7 +38,7 @@ main {
   padding: 2rem;
   width: 60%;
   height: auto;
-  background-color: #dee7f5;
+  background-color: rgb(254,212,48);
   vertical-align: middle;
   display: flex;
   flex-direction: column;

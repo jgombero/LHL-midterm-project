@@ -40,20 +40,25 @@ getAllCategories()
 
 
 
+$(() => {
+  $newProduct.on('submit', function(event) {
+    event.preventDefault();
+    const data = $(this).serialize();
 
-$newProduct.on('submit', function(event) {
-  event.preventDefault();
-  const data = $(this).serialize();
+    addProduct(data)
+      .then(json => {
+        // console.log('JSON:', json);
+        getAllProducts().then(function(json) {
+          // console.log('returned items from DB:', json);
+          renderListings(json.products);
+          // location.reload();
+          $section = $('main');
+          $products = $('#main-container');
 
-  addProduct(data)
-  .then(json => {
-    // console.log('JSON:', json);
-    getAllProducts().then(function(json) {
-      // console.log('returned items from DB:', json);
-      enderListings(json.products);
-      location.reload();
-      // views_manager.show('product');
-    });
+          window.views_manager.show('product');
+          console.log('After views manager triggered');
+        });
+      });
   });
-});
 
+});

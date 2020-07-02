@@ -19,6 +19,7 @@ $(() => {
   $('#favorites').click(function() {
     getAllFavorites()
     .then(function(json) {
+      views_manager.show('clear');
       renderListings(json.favorites);
       // views_manager.show('product');
     })
@@ -31,9 +32,9 @@ $(() => {
   $('#my_products').click(function() {
     getMyProducts()
     .then(function(json) {
+      views_manager.show('clear');
       console.log('My JSON products:', json);
       renderListings(json.myProducts);
-      // views_manager.show('product');
     });
   });
 

@@ -77,6 +77,7 @@ const renderConversationMessages = function (messageData, fromID, toID, productI
   const userID = messageData[1];
   const messages = messageData[0];
   const messageContainer = $('#single-message-container');
+  console.log(fromID, toID, userID);
 
   for (const message of messages) {
     // Go through all messages user has sent or received. If product ID matches,

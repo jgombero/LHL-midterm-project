@@ -126,7 +126,7 @@ exports.getUserFavorites = getUserFavorites;
 
 const getUniqueMessageTopics = function(db, userID) {
   return db.query(`
-  SELECT DISTINCT messages.from_user_id, messages.to_user_id, products.name, products.photo_url, users.name AS owner_name, u2.name AS sender_name, products.id AS product_id
+  SELECT messages.from_user_id, messages.to_user_id, products.name, products.photo_url, users.name AS owner_name, u2.name AS sender_name, products.id AS product_id
 FROM messages
 JOIN products ON (products.id = messages.product_id)
 JOIN users ON (users.id = products.owner_id)
