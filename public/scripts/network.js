@@ -103,8 +103,7 @@ const deleteProduct = function(data) {
 
   return $.ajax({
     method: 'POST',
-    url: `api/product/${productID}/delete`,
-    data,
+    url: `api/products/delete?${productID}`
   });
 };
 

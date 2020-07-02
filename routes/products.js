@@ -89,6 +89,13 @@ module.exports = function (db) {
     }
   });
 
+  router.post("/delete", (req, res) => {
+    database.deleteProduct(db, req.query.product_id)
+    .then(deletedProduct => {
+      res.send(deletedProduct);
+    });
+  });
+
   return router;
 
 

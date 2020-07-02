@@ -12,36 +12,34 @@ $(() => {
       const productObj = json.products[0];
       console.log(productObj);
       console.log('product obj to render popup', json.products);
-      const productID = productObj.owner_id;
+      const ownerID = productObj.owner_id;
 
       getMyDetails()
         .then(json => {
-          const ownerID = json.user.id;
+          const userID = json.user.id;
 
-          console.log(ownerID);
-          console.log(productID);
           let $popup;
 
-          if (ownerID !== productID) {
-            $popup = $(`<div id='popup' class='popup'>
-      <article class="inner-product-box product-detail-box">
-        <div class='inner-product-header'>
-          <span class="close">&times;</span>
-        </div>
-        <img src="${productObj.photo_url}" alt="" class="popup-product-image">
-        <div class="inner-product-datails">
-          <h3>${productObj.name}</h3>
-          <p class="inner-product-description">${productObj.description}
-          </p>
-          <div class="inner-product-footer">
-            <h3>$${(productObj.price / 100).toFixed(2)}</h3>
-            <span class="favorite" product-id=${productObj.id}>&hearts;</span>
-          </div>
-          <form id="send-message-form" product-id="${productObj.id}" owner-id="${productObj.owner_id}">
-             <div class="inner-product-footer">
-              <label for="message-box"></label>
-              <input id="message-box" type="text" name="message_text" placeholder="Is this product still available?">
-              <button id="submit-message-button" type="submit">Send</button>
+          if (userID !== ownerID) {
+            $popup = $(`< div id = 'popup' class= 'popup' >
+            <article class="inner-product-box product-detail-box">
+              <div class='inner-product-header'>
+                <span class="close">&times;</span>
+              </div>
+              <img src="${productObj.photo_url}" alt="" class="popup-product-image">
+                <div class="inner-product-datails">
+                  <h3>${productObj.name}</h3>
+                  <p class="inner-product-description">${productObj.description}
+                  </p>
+                  <div class="inner-product-footer">
+                    <h3>$${(productObj.price / 100).toFixed(2)}</h3>
+                    <span class="favorite" product-id=${productObj.id}>&hearts;</span>
+                  </div>
+                  <form id="send-message-form" product-id="${productObj.id}" owner-id="${productObj.owner_id}">
+                    <div class="inner-product-footer">
+                      <label for="message-box"></label>
+                      <input id="message-box" type="text" name="message_text" placeholder="Is this product still available?">
+                        <button id="submit-message-button" type="submit">Send</button>
             </div>
           </form>
         </div>
@@ -67,8 +65,6 @@ $(() => {
               <button type="submit" id="sold-button">Mark as sold</button>
               <button type="submit" id="delete-button">Delete</button>
             </div>
-
-
           </article>
           </div>
         `);
@@ -113,21 +109,33 @@ $(() => {
             });
           });
 
-
-
-
-
-
           $('.favorite').click(function (event) {
             const prodID = $(this).attr('product-id');
             $(this).addClass('favorited');
             toggleFavorite(prodID).then(function (res) {
             });
           });
+
+          $('#delete-button').click(function (event) {
+            event.preventDefault();
+            const data = `product_id=${productObj.id}`;
+
+            deleteProduct(data)
+              .then(json => {
+
+                getMyProducts()
+                  .then(function (json) {
+                    views_manager.show('clear');
+                    console.log('My JSON products:', json);
+                    renderListings(json.myProducts);
+                    popup.remove();
+                    $('main').removeClass('blur');
+                    $('header').removeClass('blur');
+                    applyPopups();
+                  });
+              });
+          });
         });
-
-
     });
-  }
-
+  };
 });
