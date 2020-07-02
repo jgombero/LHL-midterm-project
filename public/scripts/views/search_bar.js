@@ -6,33 +6,41 @@ const $searchbar = $(`
 </form>
 `);
 
+const renderSearchbar = function() {
+  $searchbar.prependTo($('main'));
+};
+
+
 const applySearchFormHandler = function() {
   $('#search-form').submit(function (event) {
     event.preventDefault();
     let data = $(this).serialize();
-    $('#clear-button').show();
-    $('#search-bar-text').val('');
-
-
-    $('#clear-button').click(function () {
-      getAllProducts().then(function (json) {
-        renderListings(json.products);
-        // $('#clear-button').hide();
-      });
-    });
-    console.log(data);
+    console.log('search data:', data);
 
     getAllProducts(data).then(function (json) {
       console.log('return val from SQL', json);
       renderListings(json.products);
     });
   });
-}
+
+  $('#clear-button').click(function (event) {
+    event.preventDefault();
+
+    console.log('clear button click');
+    $(`li .category-list`).addClass('category-button-normal');
+    $(`li .category-list`).removeClass('category-button-selected');
+    $('#search-bar-text').val('');
+    $('#min_price').val('');
+    $('#max_price').val('');
+    getAllProducts().then(function (json) {
+      renderListings(json.products);
+      applySearchFormHandler();
+      // $('#clear-button').hide();
+    });
+  });
+};
 
 $(() => {
-  // console.log('search-bar.js loaded');
+  applySearchFormHandler();
 });
 
-const renderSearchbar = function() {
-  $searchbar.prependTo($('main'));
-};

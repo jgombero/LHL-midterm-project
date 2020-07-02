@@ -42,6 +42,7 @@ const applyCategoryLinks = function() {
 
     getAllProducts(data).then(function(json) {
       renderListings(json.products);
+      applySearchFormHandler();
     });
   });
 };
