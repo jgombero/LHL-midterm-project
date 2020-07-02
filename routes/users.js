@@ -48,6 +48,13 @@ module.exports = (db) => {
     res.send();
   });
 
+  router.get('/getDetails', (req, res) => {
+    database.getCurrentUser(db, req.cookies.user_id)
+    .then(user => {
+      res.send({ user });
+    });
+  });
+
 
   return router;
 };

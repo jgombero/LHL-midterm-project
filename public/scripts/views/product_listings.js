@@ -28,7 +28,6 @@ const renderListings = function(productListingsArray) {
   $('#main-container').empty();
 
   for (const listing of productListingsArray) {
-    console.log('in the loop');
     const $listing = renderListing(listing);
 
     $('#main-container').append($listing);
