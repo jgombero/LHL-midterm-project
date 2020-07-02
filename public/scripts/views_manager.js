@@ -47,6 +47,7 @@ $(() => {
       $newProduct.appendTo($section);
       break;
     case 'logIn':
+      console.log('IN THE VIEWS MANAGER LOG IN');
       $logInForm.appendTo($section);
       applyLoginOverride();
       break;

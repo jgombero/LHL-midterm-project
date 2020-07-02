@@ -3,64 +3,81 @@ let $header;
 $(() => {
   // renderHeader();
 
-  $('#log_in').click(function() {
-    views_manager.show('logIn');
-  });
+  getMyDetails()
+  .then(json => {
+    let isLoggedIn = false;
+    console.log('USER DETAILS:', json);
 
-  $('#log_out').click(function() {
-    logOut()
-    .then(res => {
-      location.reload();
-      views_manager.show('product');
+    if (json.user) {
+      isLoggedIn = true;
+    }
+
+    $('#log_in').click(function() {
+      views_manager.show('logIn');
     });
 
-  });
-
-  $('#favorites').click(function() {
-    getAllFavorites()
-    .then(function(json) {
-      views_manager.show('clear');
-      renderListings(json.favorites);
-      // views_manager.show('product');
-    })
-  });
-
-  $('#all_products').click(function() {
-    views_manager.show('clear');
-    getAllProducts().then(function(json) {
-      renderListings(json.products);
-      $searchbar.prependTo($section);
-      $sidebar.prependTo($section);
-      $('#search-bar-text').val('');
-      // $('#search-bar').find('input:text').val('');
-      // views_manager.show('product');
+    $('#log_out').click(function() {
+      logOut()
+      .then(res => {
+        location.reload();
+        views_manager.show('product');
+      });
     });
-  });
 
-  $('#favorites').click(function() {
-    getAllFavorites()
-    .then(function(json) {
-      views_manager.show('clear');
-      renderListings(json.favorites);
-      // views_manager.show('product');
-    })
-  });
+    $('#favorites').click(function() {
 
-  $('#add_product').click(function() {
-    views_manager.show('newProduct');
-  });
-
-  $('#my_products').click(function() {
-    getMyProducts()
-    .then(function(json) {
-      views_manager.show('clear');
-      console.log('My JSON products:', json);
-      renderListings(json.myProducts);
+      if (isLoggedIn) {
+        console.log('is Logged IN: ', isLoggedIn)
+        getAllFavorites()
+        .then(function(json) {
+          views_manager.show('clear');
+          renderListings(json.favorites);
+          // views_manager.show('product');
+        });
+      } else {
+        views_manager.show('logIn');
+      }
     });
-  });
 
-  $('#messages').click(function() {
-    views_manager.show('messages');
+    $('#all_products').click(function() {
+      getAllProducts().then(function(json) {
+        renderListings(json.products);
+        $searchbar.prependTo($section);
+        $sidebar.prependTo($section);
+        $('#search-bar-text').val('');
+
+        // views_manager.show('product');
+      });
+    });
+
+    $('#add_product').click(function() {
+      if (isLoggedIn) {
+        views_manager.show('newProduct');
+      } else {
+        views_manager.show('logIn');
+      }
+    });
+
+    $('#my_products').click(function() {
+      if (isLoggedIn) {
+        getMyProducts()
+        .then(function(json) {
+          views_manager.show('clear');
+          console.log('My JSON products:', json);
+          renderListings(json.myProducts);
+        });
+      } else {
+        views_manager.show('logIn');
+      }
+    });
+
+    $('#messages').click(function() {
+      if (isLoggedIn) {
+      views_manager.show('messages');
+      } else {
+        views_manager.show('logIn');
+      }
+    });
 
   });
 });

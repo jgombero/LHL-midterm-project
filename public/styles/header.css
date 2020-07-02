@@ -4,6 +4,8 @@
   border: 1px solid white;
   border-bottom: 3px solid black;
   background-color: white;
+  margin: 20px 10px 20px 10px;
+
 
 }
 
@@ -17,7 +19,10 @@
 }
 
 #main-header i {
+<<<<<<< HEAD
   margin: 20px 10px 20px 10px;
+=======
+>>>>>>> b836af8b429b0bff07722fd8c6763773872cec55
   font-size: 30px !important;
   cursor: pointer;
 }
