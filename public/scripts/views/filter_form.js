@@ -86,5 +86,4 @@ const renderSidebar = function(categoryArray) {
     $("#all-filters-container").slideToggle("slow", function() {
     });
   });
-
 };

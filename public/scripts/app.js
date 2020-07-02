@@ -6,6 +6,8 @@ $(() => {
     // console.log('JSON categories: ', json);
     categoriesList = json.categories;
     renderSidebar(json.categories);
+    renderSearchbar();
+    applySearchFormHandler();
   });
 
   getAllProducts().then(function(json) {

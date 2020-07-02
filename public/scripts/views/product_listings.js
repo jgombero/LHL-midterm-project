@@ -12,7 +12,7 @@ let applyPopups = () => {
 };
 
 const renderListing = function(listingObj) {
-  // console.log('listing obj: ', listingObj);
+  // console.log('listing obj:de ', listingObj);
   let markup;
   if (listingObj.available) {
     markup = `
@@ -45,7 +45,6 @@ const renderListings = function(productListingsArray) {
     const $listing = renderListing(listing);
 
     $('#main-container').append($listing);
-
   }
   applyPopups();
 };
