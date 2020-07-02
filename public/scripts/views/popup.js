@@ -21,12 +21,13 @@ $(() => {
           let $popup;
 
           if (userID !== ownerID) {
-            $popup = $(`<div id='popup' class='popup'>
-            <article class="inner-product-box product-detail-box">
-              <div class='inner-product-header'>
-                <span class="close">&times;</span>
-              </div>
-              <img src="${productObj.photo_url}" alt="" class="popup-product-image">
+            $popup = $(`
+            <div id='popup' class= 'popup'>
+              <article class="inner-product-box product-detail-box">
+                <div class='inner-product-header'>
+                  <span class="close">&times;</span>
+                </div>
+                <img src="${productObj.photo_url}" alt="" class="popup-product-image">
                 <div class="inner-product-datails">
                   <h3>${productObj.name}</h3>
                   <p class="inner-product-description">${productObj.description}
@@ -130,6 +131,12 @@ $(() => {
               });
           });
 
+          // $('#sold-button').click(function(event) {
+          //   event.preventDefault();
+          //   const data = `product_id=${productObj.id}`;
+
+
+          // });
           const toggleFavCSS = function(elem) {
             if (elem.attr('favoriteBool') === 'true') {
               elem.removeClass('favorited');
