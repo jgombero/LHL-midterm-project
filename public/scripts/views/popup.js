@@ -137,8 +137,7 @@ $(() => {
 
             markProductSold(data)
             .then(json => {
-              // need to apply css here to show product is sold??
-              console.log(json);
+
               getMyProducts()
               .then(function (json) {
                 views_manager.show('clear');
@@ -147,7 +146,6 @@ $(() => {
                 popup.remove();
                 $('main').removeClass('blur');
                 $('header').removeClass('blur');
-                applyPopups();
               });
             });
           });
