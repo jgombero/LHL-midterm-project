@@ -24,7 +24,7 @@
 }
 
 #clear-button {
-  display: none;
+  /* display: none; */
   position: absolute;
   top: .26rem;
   border-radius: 2rem;

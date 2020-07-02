@@ -17,7 +17,7 @@ const applySearchFormHandler = function() {
     $('#clear-button').click(function () {
       getAllProducts().then(function (json) {
         renderListings(json.products);
-        $('#clear-button').hide();
+        // $('#clear-button').hide();
       });
     });
     console.log(data);

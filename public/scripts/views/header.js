@@ -41,34 +41,19 @@ $(() => {
 
       $('#all_products').click(function () {
         getAllProducts().then(function (json) {
-          // views_manager.show('clear');
+          views_manager.show('clear');
+          views_manager.show('product');
           renderListings(json.products);
           renderSearchbar();
           $sidebar.prependTo($section);
 
           // Normalize items
-          $('#filter-button').slideUp();
           $('#search-bar-text').val('');
           $('#min_price').val('');
           $('#max_price').val('');
-          $('#clear-button').hide();
+          // $('#clear-button').hide();
 
           applySearchFormHandler();
-
-          // Just for price search - not necessary?
-          // $('#price-search-form').submit(function(event) {
-          //   event.preventDefault();
-          //   let data = $(this).serialize();
-
-          //   if (categorySelected) {
-          //     data += `&category_id=${categorySelected}`;
-          //   }
-
-          //   getAllProducts(data).then(function(json) {
-          //     renderListings(json.products);
-          //   });
-          // });
-
         });
       });
 
