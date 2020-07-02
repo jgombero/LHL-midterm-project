@@ -50,12 +50,13 @@ $(() => {
         // console.log('JSON:', json);
         getAllProducts().then(function(json) {
           // console.log('returned items from DB:', json);
+          window.views_manager.show('product');
           renderListings(json.products);
           // location.reload();
-          $section = $('main');
-          $products = $('#main-container');
 
-          window.views_manager.show('product');
+          // $section = $('main');
+          // $products = $('#main-container');
+
           console.log('After views manager triggered');
         });
       });

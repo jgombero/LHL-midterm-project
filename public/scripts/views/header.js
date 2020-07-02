@@ -41,12 +41,13 @@ $(() => {
 
     $('#all_products').click(function() {
       getAllProducts().then(function(json) {
+        views_manager.show('product');
+
         renderListings(json.products);
         $searchbar.prependTo($section);
         $sidebar.prependTo($section);
         $('#search-bar-text').val('');
 
-        // views_manager.show('product');
       });
     });
 
