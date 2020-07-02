@@ -141,7 +141,6 @@ $(() => {
 
             markProductSold(data)
             .then(json => {
-
               getMyProducts()
               .then(function (json) {
                 views_manager.show('clear');

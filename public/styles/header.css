@@ -17,7 +17,14 @@
 }
 
 #main-header i {
-  margin: 20px;
+  margin: 20px 10px 20px 10px;
   font-size: 30px !important;
   cursor: pointer;
+}
+
+@media screen and (min-width: 40em) {
+  #main-header i {
+    margin: 20px;
+  }
+
 }

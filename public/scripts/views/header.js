@@ -31,13 +31,11 @@ $(() => {
       renderListings(json.products);
       $searchbar.prependTo($section);
       $sidebar.prependTo($section);
+      $('#search-bar-text').val('');
+      // $('#search-bar').find('input:text').val('');
       // views_manager.show('product');
     });
   });
-
-
-
-
 
   $('#favorites').click(function() {
     getAllFavorites()

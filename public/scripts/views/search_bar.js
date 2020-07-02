@@ -1,7 +1,8 @@
 const $searchbar = $(`
 <form id="search-form">
-  <div id="search-bar">
+  <div id="search-bar" class="buttonIn">
     <input type="text" id="search-bar-text" name="search_param" placeholder="Search all items...">
+    <button id="clear">Clear</button>
 </form>
 `);
 

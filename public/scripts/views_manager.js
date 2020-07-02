@@ -25,11 +25,17 @@ $(() => {
     // $messages.detach();
     $('#messages-container').remove();
     $newProduct.detach();
+    $('#search-bar-text').val('');
+    $('#search-bar').find('input:text').val('');
+
+
+
 
     switch(item) {
     case 'product':
       // $products = $('#main-container');
       $products = $(myProducts);
+
 
       console.log('CAN YOU SEE ME', myProducts, $products.html());
       $sidebar.appendTo($section);
