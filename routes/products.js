@@ -29,7 +29,7 @@ module.exports = function (db) {
   router.get("/", (req, res) => {
     console.log('request to products API: ', req.query);
 
-    database.getAllProductsFromDB(db, req.query, 20)
+    database.getAllProductsFromDB(db, req.query, 50)
       .then(products => {
         // console.log('return products from db: ', products);
         res.send({ products });
