@@ -65,10 +65,13 @@ const renderListings = function(productListingsArray) {
 
 let pageNum = 1;
 
+// Math.floor(document.height / window.height)
+//   = pageNum
+
 $(window).scroll(function() {
   if($(window).scrollTop() == $(document).height() - $(window).height()) {
     console.log('DOCUMENT HEIGHT:', $(document).height());
-    console.log('WINDOW HEIGHT:', $(window).height())
+    console.log('WINDOW HEIGHT:', $(window).height());
     getAllProducts(`pageNum=${pageNum}`)
     .then(function(json) {
       console.log(json);
