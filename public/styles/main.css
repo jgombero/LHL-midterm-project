@@ -69,12 +69,6 @@ p .inner-product-description {
   width: 90%;
 }
 
-#submit-message-button {
-  width: 10%;
-  background-color: #5353a1;
-  color: white;
-}
-
 .inner-product-details {
   display: flex;
   flex-direction: column;

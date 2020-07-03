@@ -60,13 +60,20 @@ p .inner-product-description {
 
 #message-box {
   width: 90%;
+  border-radius: 4rem;
+  padding-left: .5rem;
+  outline: none;
 }
 
 #submit-message-button {
   width: auto;
-
-  background-color: #5353a1;
   color: white;
+  border-radius: 4rem;
+  width: 5rem;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(37,37,37);
 }
 
 .inner-product-details {

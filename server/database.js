@@ -123,7 +123,7 @@ const getUserFavorites = function(db, userID) {
   SELECT products.*
   FROM products
   JOIN favorites ON products.id = product_id
-  WHERE favorites.user_id = $1;
+  WHERE favorites.user_id = $1 AND favorites.favorited = TRUE;
   `, [ userID ])
   .then(res => {
     return res.rows;
