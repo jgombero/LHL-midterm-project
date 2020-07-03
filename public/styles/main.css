@@ -15,10 +15,16 @@ body {
 
 }
 
+#login-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .login-form {
   padding: 1rem;
   margin-top: 2rem;
-  width: 30%;
+  width: 40%;
   border: 1px solid black;
   border-radius: 2rem;
 }
@@ -141,4 +147,9 @@ p .inner-product-description {
   }
 }
 
+@media screen and (max-width: 40em) {
+  .login-form {
+    width: 70%;
+  }
+}
 /*# sourceMappingURL=main.css.map */
