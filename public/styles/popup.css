@@ -21,7 +21,7 @@
   padding: 2rem;
   width: 100%;
   height: auto;
-  background-color: rgb(231,	210,	139	);
+  background-color: rgb(243, 232, 196);
   vertical-align: middle;
   display: flex;
   flex-direction: column;
@@ -152,13 +152,25 @@ p .inner-product-description {
 #sold-button {
   background-color: green;
   color: white;
+  padding: 1rem;
+  border-radius: 4rem;
   cursor: pointer;
+}
+
+#sold-button:hover {
+  background-color: rgb(24, 196, 24);
 }
 
 #delete-button {
   background-color: red;
   color: white;
+  padding: 1rem;
+  border-radius: 4rem;
   cursor: pointer;
+}
+
+#delete-button:hover {
+  background-color: rgb(150, 9, 9);
 }
 
 @-webkit-keyframes fadeIn {

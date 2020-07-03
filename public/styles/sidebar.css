@@ -27,8 +27,15 @@ ul {
   margin: 0.1rem;
 }
 
-.apply-button {
+.min-max {
   width: 30%;
+}
+
+.apply-button {
+  color: black;
+  background-color: rgb(250, 218, 89);
+  text-align: center;
+  width: 35%;
 }
 
 #all-filters-container {
@@ -52,11 +59,13 @@ ul {
 }
 
 .categories-group li:hover {
-  background-color: rgb(158, 189, 240)
+  color: black;
+  background-color: rgb(254,212,48);
 }
 
 .category-button-selected {
-  background-color: rgb(30, 102, 218);
+    color: black !important;
+    background-color: rgb(254,212,48);
 }
 .categories-group {
   /* background-color: #333; */

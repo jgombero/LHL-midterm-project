@@ -60,10 +60,10 @@ const renderSidebar = function(categoryArray) {
       <div id="all-filters-container">
         <form id="price-search-form">
           <label for="min_price"></label>
-          <input type="text" id="min_price" name="min_price" class="apply-button" placeholder="$ Min">
+          <input type="text" id="min_price" name="min_price" class="min-max" placeholder="$ Min">
           <p>-</p>
           <label for="max_price"></label>
-          <input type="text" id="max_price" name="max_price" class="apply-button" placeholder="$ Max">
+          <input type="text" id="max_price" name="max_price" class="min-max" placeholder="$ Max">
           <button class="btn btn-primary apply-button">Apply</button>
         </form>
         <div class="categories-group horizontal-scrollable">
