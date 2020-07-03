@@ -52,13 +52,27 @@
   color: white;
 }
 
+#add-product-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
 #add-product-form {
   background-color: white;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  flex-direction: column;
   width: 75%;
   padding: 1rem;
   border-radius: 1rem;
   border: 1px solid black;
 }
+
 
 .product-form-section {
   width: 100%;

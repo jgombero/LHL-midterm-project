@@ -1,7 +1,7 @@
 
 const $newProduct = $(`
-<div><label for="add-product-form"><h1>Add a product!</h1></label></div>
 <form id="add-product-form">
+<div class="form-group"><h1>Add a product!</h1></label></div>
   <div class="form-group">
     <label for="title">Title</label>
     <input class="form-control" type="text" name="title" placeholder="Title" />
