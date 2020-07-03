@@ -37,7 +37,14 @@
   outline: none;
   cursor: pointer;
   color: white;
+  border: 1px solid transparent;
   background-color: rgb(37,37,37);
+}
+
+#clear-button:hover {
+  background-color: rgb(254,212,48);
+  border: 1px solid black;
+  color: rgb(37,37,37);
 }
 
 .show-button {

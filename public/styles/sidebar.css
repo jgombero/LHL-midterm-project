@@ -32,10 +32,11 @@ ul {
 }
 
 .apply-button {
-  color: black;
+  color: rgb(37,37,37);
   background-color: rgb(250, 218, 89);
   text-align: center;
   width: 35%;
+  margin-left: .2rem;
 }
 
 #all-filters-container {
@@ -50,7 +51,7 @@ ul {
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
-
+  border: 1px solid transparent;
 }
 
 .category-button-normal {
@@ -59,13 +60,15 @@ ul {
 }
 
 .categories-group li:hover {
-  color: black;
+  color: rgb(37,37,37);
   background-color: rgb(254,212,48);
+  border: 1px solid black;
 }
 
 .category-button-selected {
-    color: black !important;
+    color: rgb(37,37,37) !important;
     background-color: rgb(254,212,48);
+    border: 1px solid black;
 }
 .categories-group {
   /* background-color: #333; */
@@ -122,6 +125,7 @@ ul {
   .categories-group {
     /* background-color: #333; */
     overflow: auto;
+    margin-top: -.5rem;
     white-space: pre-wrap;
     display: flex;
     justify-content: flex-start;

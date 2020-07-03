@@ -59,22 +59,29 @@ p .inner-product-description {
 }
 
 #message-box {
-  width: 90%;
+  width: 85%;
   border-radius: 4rem;
-  padding-left: .5rem;
+  padding: .5rem;
   outline: none;
 }
 
 #submit-message-button {
   width: auto;
-  color: white;
   border-radius: 4rem;
+  padding: .5rem;
   width: 5rem;
   outline: none;
   cursor: pointer;
-  color: white;
-  background-color: rgb(37,37,37);
+  background-color: rgb(254,212,48);
+  color: black;
 }
+
+#submit-message-button:hover {
+  background-color: rgb(248, 224, 128);
+  color: black;
+}
+
+
 
 .inner-product-details {
   display: flex;
@@ -150,15 +157,17 @@ p .inner-product-description {
 }
 
 #sold-button {
-  background-color: green;
-  color: white;
+  /* background-color: green; */
+  background-color: rgb(254,212,48);
+  color: rgb(37,37,37);;
   padding: 1rem;
   border-radius: 4rem;
   cursor: pointer;
+  outline: none;
 }
 
 #sold-button:hover {
-  background-color: rgb(24, 196, 24);
+  background-color: rgb(240, 222, 152);
 }
 
 #delete-button {

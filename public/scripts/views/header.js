@@ -31,8 +31,6 @@ $(() => {
           getAllFavorites()
             .then(function (json) {
               views_manager.show('clear');
-              views_manager.show('product');
-
               renderListings(json.favorites);
               // views_manager.show('product');
             });
