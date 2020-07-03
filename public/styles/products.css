@@ -15,6 +15,7 @@
   border: 1px rgb(37,37,37) solid;
   border-radius: 4px;
   padding-bottom: .2rem;
+  cursor: pointer;
 }
 
 .product-image {

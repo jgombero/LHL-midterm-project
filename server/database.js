@@ -2,6 +2,8 @@
 // db is the database passed through from Server.js.
 // options is the object that is sent from the AJAX request.
 const getAllProductsFromDB = function(db, options, limit = 10) {
+
+  const offset = options.pageNum * limit;
   // console.log('options for database.getAllProducts: ', options);
   const queryParams = [];
 
@@ -62,7 +64,12 @@ const getAllProductsFromDB = function(db, options, limit = 10) {
 
   queryParams.push(limit);
   queryString += `
-  LIMIT $${queryParams.length};
+  LIMIT $${queryParams.length}
+  `;
+
+  queryParams.push(offset);
+  queryString += `
+OFFSET $${queryParams.length};
   `;
 
   console.log('Products query string: ', queryString);

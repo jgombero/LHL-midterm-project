@@ -62,3 +62,29 @@ const renderListings = function(productListingsArray) {
   }
   applyPopups();
 };
+
+let pageNum = 1;
+
+$(window).scroll(function() {
+  if($(window).scrollTop() == $(document).height() - $(window).height()) {
+    console.log('DOCUMENT HEIGHT:', $(document).height());
+    console.log('WINDOW HEIGHT:', $(window).height())
+    getAllProducts(`pageNum=${pageNum}`)
+    .then(function(json) {
+      console.log(json);
+      addListingsOnScroll(json.products);
+      pageNum += 1;
+    });
+  }
+});
+
+const addListingsOnScroll = function(productListingsArray) {
+
+  for (const listing of productListingsArray) {
+    const $listing = renderListing(listing);
+
+    $('#main-container').append($listing);
+
+  }
+  applyPopups();
+};

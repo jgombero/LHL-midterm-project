@@ -8,7 +8,7 @@ $(() => {
     renderSidebar(json.categories);
   });
 
-  getAllProducts().then(function(json) {
+  getAllProducts('pageNum=0').then(function(json) {
     // console.log('returned items from DB:', json.products);
     renderListings(json.products);
     // renderHeader();

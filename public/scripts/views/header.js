@@ -40,7 +40,7 @@ $(() => {
     });
 
     $('#all_products').click(function() {
-      getAllProducts().then(function(json) {
+      getAllProducts('pageNum=0').then(function(json) {
         views_manager.show('clear');
         views_manager.show('product');
 
