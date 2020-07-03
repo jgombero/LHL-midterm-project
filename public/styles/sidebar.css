@@ -68,7 +68,7 @@ ul {
 .category-button-selected {
     color: rgb(37,37,37) !important;
     background-color: rgb(254,212,48);
-    border: 1px solid black;
+    border: 1px solid black !important;
 }
 .categories-group {
   /* background-color: #333; */
