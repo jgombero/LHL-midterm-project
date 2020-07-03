@@ -21,6 +21,10 @@
   cursor: pointer;
 }
 
+#main-header i:hover {
+  color:rgb(254,212,48);
+}
+
 @media screen and (min-width: 40em) {
   #main-header i {
     margin: 20px;

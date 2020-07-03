@@ -2,17 +2,27 @@
 const $newProduct = $(`
 <h1>Add a product!</h1>
 <form id="add-product-form">
-<label for="title">Title</label>
-<input type="text" name="title" placeholder="Title" />
-<label for="description">Description</label>
-<input type="text" name="description" placeholder="Description" />
-<label for="price">Price</label>
-<input type="number" name="price" step="any" placeholder="$" />
-<label for="category">Category</label>
-<select name="category" id="categories-list"></select>
-<label for="photo_url">Photo</label>
-<input type="text" name="photo_url" placeholder="Photo URL" />
-<button type="submit">Submit</button>
+  <div class="product-form-section">
+
+  <label for="title">Title</label>
+  <input type="text" name="title" placeholder="Title" />
+  <label for="description">Description</label>
+  <input type="text" name="description" placeholder="Description" />
+  </div>
+  <div class="product-form-section">
+
+  <label for="price">Price</label>
+  <input type="number" name="price" step="any" placeholder="$" />
+  <label for="category">Category</label>
+  <select name="category" id="categories-list"></select>
+  </div>
+  <div class="product-form-section">
+
+  <label for="photo_url">Photo</label>
+  <input type="text" name="photo_url" placeholder="Photo URL" />
+  <button type="submit">Submit</button>
+  </div>
+
 </form>
 `);
 
