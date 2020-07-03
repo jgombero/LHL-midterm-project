@@ -53,9 +53,8 @@
 }
 
 #add-product-form {
-  display: flex;
-  flex-direction: column;
   background-color: white;
+  width: 75%;
   padding: 1rem;
   border-radius: 1rem;
   border: 1px solid black;
