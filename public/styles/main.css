@@ -15,6 +15,19 @@ body {
 
 }
 
+.login-form {
+  padding: 1rem;
+  margin-top: 2rem;
+  width: 30%;
+  border: 1px solid black;
+  border-radius: 2rem;
+}
+
+.login-button {
+  background-color: rgb(247, 240, 174);
+  color: black;
+}
+
 /* ALEX's TEST CSS CODE */
 /* Container for product popup */
 .popup {
