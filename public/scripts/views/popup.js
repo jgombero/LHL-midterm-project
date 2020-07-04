@@ -130,7 +130,7 @@ $(() => {
                     popup.remove();
                     $('main').removeClass('blur');
                     $('header').removeClass('blur');
-                    applyPopups();
+                    // applyPopups();
                   });
               });
           });

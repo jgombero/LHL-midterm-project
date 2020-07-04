@@ -1,5 +1,5 @@
--Find a new hobby b/c pandemic
 -Log in to look around
+- Learn a new skill and stay competitive in an ever-changing job market
 -Find lighthouse lab item
 -Save to favorites
 -Add The shitty laptop 
